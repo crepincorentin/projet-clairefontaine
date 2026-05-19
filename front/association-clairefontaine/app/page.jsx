@@ -1,8 +1,19 @@
 // src/app/page.jsx
 import Link from 'next/link';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faUser, faStar, faArrowRight } from '@fortawesome/free-solid-svg-icons';
 import './styles/components/hero.scss';
 import './styles/components/about-section.scss';
+import './styles/components/stats-section.scss';
+import './styles/components/establishments-section.scss';
+
+const establishments = [
+  { name: 'Maison de famille Saint-Augustin (Bergues)', image: '/saint-augustin.jpeg', link: '/etablissements/saint-augustin' },
+  { name: 'Maison de famille Clairefontaine (Hazebrouck)', image: '/clairefontaine.jpg', link: '/etablissements/clairefontaine' },
+  { name: 'Maison de famille Jeanne Jugan (Dunkerque)', image: '/jeanne-jugan.jpg', link: '/etablissements/jeanne-jugan' },
+  { name: 'Résidence autonomie Montjoie (Dunkerque)', image: '/montjoie.jpg', link: '/etablissements/montjoie' },
+];
 
 export default function HomePage() {
   return (
@@ -48,6 +59,59 @@ export default function HomePage() {
           <Link href="/notre-association" className="about-section__button">
             En savoir plus sur notre association
           </Link>
+        </div>
+      </section>
+
+      <section className="stats-section">
+        <div className="stats-section__container">
+          <div className="stats-section__title-container">
+            <h3>L'association Clairefontaine en quelques chiffres</h3>
+          </div>
+          <div className="stats-section__stats">
+            <div className="stats-section__stat">
+              <span className="number">500</span>
+              <span className="label">
+                <FontAwesomeIcon icon={faUser} />
+                Résidents
+              </span>
+            </div>
+            <div className="stats-section__stat">
+              <span className="number">30</span>
+              <span className="label">
+                <FontAwesomeIcon icon={faStar} />
+                Années d'existence
+              </span>
+            </div>
+            <div className="stats-section__stat">
+              <span className="number">4</span>
+              <span className="label">
+                <FontAwesomeIcon icon={faStar} />
+                Etablissements
+              </span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="establishments-section">
+        <h2 className="establishments-section__title">Nos établissements</h2>
+        <div className="establishments-section__grid">
+          {establishments.map((estab, index) => (
+            <div key={index} className="establishment-card">
+              <Image
+                src={estab.image}
+                alt={estab.name}
+                layout="fill"
+                className="establishment-card__image"
+              />
+              <div className="establishment-card__overlay">
+                <h3 className="establishment-card__name">{estab.name}</h3>
+                <Link href={estab.link} className="establishment-card__link">
+                  Voir <FontAwesomeIcon icon={faArrowRight} />
+                </Link>
+              </div>
+            </div>
+          ))}
         </div>
       </section>
     </main>

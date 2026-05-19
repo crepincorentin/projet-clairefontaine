@@ -1,0 +1,60 @@
+@import '../utils/palette';
+
+.stats-section {
+  background-color: $color-association;
+  color: white;
+  padding: 3rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 1500px;
+  }
+
+  &__title-container {
+    flex-basis: 25%;
+    text-align: center;
+    padding-right: 2rem;
+    border-right: 1px solid rgba(255, 255, 255, 0.5);
+    
+    h3 {
+      font-size: 1.5rem;
+      font-weight: normal;
+    }
+  }
+
+  &__stats {
+    flex-basis: 75%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+
+  &__stat {
+    text-align: center;
+
+    .number {
+      font-size: 4rem;
+      font-weight: bold;
+      display: block;
+    }
+
+    .label {
+      font-size: 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+
+        svg {
+            width: 1.5rem;
+            height: 1.5rem;
+        }
+    }
+  }
+}
