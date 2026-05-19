@@ -1,0 +1,58 @@
+@import '../utils/mixins';
+
+.hero {
+  position: relative;
+  height: 60vh;
+  display: flex;
+  align-items: center;
+  color: white;
+  text-align: left;
+  padding: 0 13rem;
+  overflow: hidden; // To contain the pseudo-element
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4); // Voile sombre à 40%
+    z-index: 0;
+  }
+}
+
+.hero__background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+}
+
+.hero__content {
+  max-width: 600px;
+  position: relative; // Pour s'assurer que le contenu est au-dessus du voile
+  z-index: 1;
+}
+
+.hero h1 {
+  font-size: 3.5rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+}
+
+.hero p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+}
+
+.hero__button {
+    @include button-style;
+}
+
+.hero__button:hover {
+  background-color: #0056b3;
+}
