@@ -1,19 +1,31 @@
-// src/components/Navbar.jsx
 import Link from 'next/link';
+import Image from 'next/image';
+import '../styles/components/navbar.scss';
 
 export default function Navbar() {
   return (
-    <header style={{ color: 'white', padding: '1rem 2rem' }}>
-      <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center', maxWidth: '1200px', margin: '0 auto' }}>
-        <strong style={{ fontSize: '1.2rem' }}>
-          <Link href="/">Association Clairefontaine</Link>
-        </strong>
-        <nav style={{ display: 'flex', gap: '1.5rem' }}>
-          <Link href="/association">L'Association</Link>
-          <Link href="/etablissements/saint-augustin">Bergues</Link>
-          <Link href="/etablissements/clairefontaine">Hazebrouck</Link>
-          <Link href="/etablissements/jeanne-jugan">Dunkerque</Link>
+    <header className="navbar">
+      <div className="navbar__container">
+        <div className="navbar__logo">
+          <Link href="/">
+            <Image
+              src="/logo.png"
+              alt="Association Clairefontaine Logo"
+              width={150}
+              height={50}
+            />
+          </Link>
+        </div>
+        <nav className="navbar__nav">
+          <Link href="/">Accueil</Link>
+          <Link href="/qui-sommes-nous">Qui sommes-nous ?</Link>
+          <Link href="/nos-etablissements">Nos établissements</Link>
         </nav>
+        <div className="navbar__contact">
+          <Link href="/contact" className="navbar__contact-button">
+            Nous contacter
+          </Link>
+        </div>
       </div>
     </header>
   );

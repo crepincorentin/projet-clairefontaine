@@ -14,9 +14,9 @@ export default function RootLayout({ children }) {
       <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
         <Navbar />
         
-        <div style={{ flex: 1 }}>
+        <main style={{ flex: 1 }}>
           {children}
-        </div>
+        </main>
         
         <Footer />
       </body>

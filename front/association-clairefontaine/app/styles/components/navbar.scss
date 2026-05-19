@@ -1,5 +1,42 @@
-header {
-    background-color: $color-association;
-    color: white;
-    padding: 1rem 2rem;
+@import '../utils/mixins';
+
+.navbar {
+  padding: 1rem 2rem;
+  background-color: #fff;
+  border-bottom: 1px solid #eaeaea;
+  font-family: 'Raleway', sans-serif;
+
+  &__container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1500px;
+    margin: 0 auto;
+  }
+
+  &__logo {
+    img {
+      height: 50px;
+      width: auto;
+    }
+  }
+
+  &__nav {
+    display: flex;
+    gap: 2rem;
+    a {
+      text-decoration: none;
+      color: #333;
+      font-weight: 500;
+      transition: color 0.3s ease;
+
+      &:hover {
+        color: $color-association;
+      }
+    }
+  }
+
+  &__contact-button {
+    @include button-style;
+  }
 }

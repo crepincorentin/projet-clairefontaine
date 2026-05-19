@@ -1,0 +1,14 @@
+@import './palette';
+
+@mixin button-style {
+  background: $blue-gradient;
+  color: white;
+  padding: 0.8rem 1.5rem;
+  border-radius: 5px;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+
+  &:hover {
+    opacity: 0.9;
+  }
+}
