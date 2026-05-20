@@ -1,14 +1,20 @@
 @import './palette';
 
-@mixin button-style {
-  background: $blue-gradient;
-  color: white;
+@mixin button-style($background-color: $blue-gradient, $text-color: white, $hover-background-color: null) {
+  background: $background-color;
+  color: $text-color;
   padding: 0.8rem 1.5rem;
   border-radius: 5px;
   text-decoration: none;
-  transition: opacity 0.3s ease;
+  transition: background-color 0.3s ease, opacity 0.3s ease;
+  border: none;
+  cursor: pointer;
 
   &:hover {
-    opacity: 0.9;
+    @if $hover-background-color {
+      background: $hover-background-color;
+    } @else {
+      opacity: 0.9;
+    }
   }
 }

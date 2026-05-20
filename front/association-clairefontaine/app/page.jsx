@@ -7,6 +7,10 @@ import './styles/components/hero.scss';
 import './styles/components/about-section.scss';
 import './styles/components/stats-section.scss';
 import './styles/components/establishments-section.scss';
+import './styles/components/faq.scss';
+import './styles/components/cta-section.scss';
+import Faq from './components/Faq';
+import Cta from './components/Cta';
 
 const establishments = [
   { name: 'Maison de famille Saint-Augustin (Bergues)', image: '/saint-augustin.jpeg', link: '/etablissements/saint-augustin' },
@@ -114,6 +118,10 @@ export default function HomePage() {
           ))}
         </div>
       </section>
+
+      <Faq />
+
+      <Cta />
     </main>
   );
 }
