@@ -1,0 +1,95 @@
+@import '../../utils/palette';
+
+.management-section {
+  padding: 3rem 2rem;
+  color: white;
+  background-color: $color-association;
+
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(0, 1.2fr) minmax(25rem, 1fr);
+    align-items: center;
+    gap: clamp(4rem, 6.5vw, 8rem);
+    width: 100%;
+    max-width: 1300px;
+    margin: 0 auto;
+  }
+
+  &__content {
+    h2 {
+      margin-bottom: clamp(4rem, 6vw, 7rem);
+      font-size: clamp(2rem, 3vw, 2.75rem);
+      font-weight: 700;
+      line-height: 1.18;
+      letter-spacing: -0.02em;
+
+      span {
+        display: block;
+      }
+    }
+
+    p {
+      max-width: 54rem;
+      font-size: clamp(1.05rem, 1.15vw, 1.35rem);
+      line-height: 1.75;
+    }
+  }
+
+  &__image {
+    width: 100%;
+
+    img {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+  }
+}
+
+@media (max-width: 1000px) {
+  .management-section {
+    &__container {
+      grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.75fr);
+      gap: 3rem;
+    }
+
+    &__content {
+      h2 {
+        margin-bottom: 3rem;
+
+        span {
+          display: inline;
+
+          & + span::before {
+            content: ' ';
+          }
+        }
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .management-section {
+    padding: 3.5rem 1.25rem 0;
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    &__content h2 {
+      margin-bottom: 2rem;
+    }
+
+    &__image {
+      max-width: 32rem;
+      margin: 0 auto;
+    }
+  }
+}

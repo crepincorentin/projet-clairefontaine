@@ -5,7 +5,7 @@ export default function Cta() {
   return (
     <section className="cta-section">
       <div className="cta-section__content">
-        <h2>Vous souhaitez plus d'informations ?</h2>
+        <h2>Vous souhaitez plus d&apos;informations ?</h2>
         <p>
           Lorem ipsum dolor sit amet consectetur. Augue non malesuada placerat faucibus nam purus sem. Urna pulvinar porttitor dignissim congue pellentesque ac hac.
         </p>
