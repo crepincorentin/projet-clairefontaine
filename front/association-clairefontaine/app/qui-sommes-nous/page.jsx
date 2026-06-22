@@ -1,8 +1,39 @@
 import Link from 'next/link';
 import Image from 'next/image';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faHandshake,
+  faHeart,
+  faPeopleGroup,
+  faUserShield,
+} from '@fortawesome/free-solid-svg-icons';
 import '../styles/components/about/page-hero.scss';
 import '../styles/components/about/history-section.scss';
 import '../styles/components/about/timeline-section.scss';
+import '../styles/components/about/pillars-section.scss';
+
+const pillars = [
+  {
+    title: 'Amour',
+    description: 'Accompagner avec cordialité, disponibilité et écoute.',
+    icon: faHeart,
+  },
+  {
+    title: 'Respect',
+    description: 'Esprit de tolérance totale vis-à-vis du vécu, des choix et des croyances.',
+    icon: faHandshake,
+  },
+  {
+    title: 'Dignité',
+    description: "Garantir la considération et l'intimité de la personne, malgré la dépendance.",
+    icon: faUserShield,
+  },
+  {
+    title: 'Conscience Institutionnelle',
+    description: 'Œuvrer ensemble dans un esprit communautaire et familial.',
+    icon: faPeopleGroup,
+  },
+];
 
 export default function QuiSommesNousPage() {
   return (
@@ -17,10 +48,10 @@ export default function QuiSommesNousPage() {
         />
         <div className="page-hero__container">
           <div className="page-hero__content">
-            <h1>Huit siècles de dévouement au service de l&apos;humain.</h1>
+            <h1>Huit siècles de dévouement au service de l'humain.</h1>
             <p>
-              De la mission séculaire des Sœurs Augustines à l&apos;accompagnement moderne de
-              l&apos;Association Clairefontaine.
+              De la mission séculaire des Sœurs Augustines à l'accompagnement moderne de
+              l'Association Clairefontaine.
             </p>
             <Link href="/contact" className="page-hero__button">
               Nous contacter
@@ -31,19 +62,19 @@ export default function QuiSommesNousPage() {
 
       <section className="history-section">
         <div className="history-section__container">
-          <h2 className="history-section__title">L&apos;Humain au cœur de notre histoire</h2>
+          <h2 className="history-section__title">L'Humain au cœur de notre histoire</h2>
           <div className="history-section__content">
             <p>
-              Héritière d&apos;une mission de charité débutée au <strong>XIIIème siècle</strong> par
-              les Sœurs de Notre Dame du Fief, l&apos;Association Clairefontaine perpétue
-              aujourd&apos;hui cet engagement auprès des plus fragiles.
+              Héritière d'une mission de charité débutée au <strong>XIIIème siècle</strong> par
+              les Sœurs de Notre Dame du Fief, l'Association Clairefontaine perpétue
+              aujourd'hui cet engagement auprès des plus fragiles.
             </p>
             <p>
               Portés par des équipes laïques mais animés par les mêmes valeurs originelles, nous
-              gérons des lieux de vie où l&apos;expérience du grand âge se conjugue avec{' '}
+              gérons des lieux de vie où l'expérience du grand âge se conjugue avec{' '}
               <strong>humanité, dignité et respect</strong>. Notre priorité absolue : mettre chaque
               résident au centre de nos attentions pour lui permettre de rester « debout », acteur
-              de sa propre vie au sein d&apos;une communauté familiale et solidaire.
+              de sa propre vie au sein d'une communauté familiale et solidaire.
             </p>
           </div>
         </div>
@@ -58,7 +89,7 @@ export default function QuiSommesNousPage() {
               <div className="timeline__content timeline__content--left">
                 <h3>XIIIème Siècle</h3>
                 <p>
-                  Les Sœurs Augustines prennent la direction de l&apos;Hôpital Sainte-Marie à
+                  Les Sœurs Augustines prennent la direction de l'Hôpital Sainte-Marie à
                   Bailleul. Elles soignent sans salaire, portées par la charité.
                 </p>
               </div>
@@ -130,6 +161,24 @@ export default function QuiSommesNousPage() {
                 </div>
               </div>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="pillars-section" aria-labelledby="pillars-title">
+        <div className="pillars-section__container">
+          <h2 id="pillars-title" className="pillars-section__title">Nos 4 Piliers</h2>
+
+          <div className="pillars-section__grid">
+            {pillars.map((pillar) => (
+              <article className="pillar-card" key={pillar.title}>
+                <div className="pillar-card__icon">
+                  <FontAwesomeIcon icon={pillar.icon} aria-hidden="true" />
+                </div>
+                <h3>{pillar.title}</h3>
+                <p>{pillar.description}</p>
+              </article>
+            ))}
           </div>
         </div>
       </section>
