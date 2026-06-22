@@ -3,12 +3,12 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faUser, faStar, faArrowRight } from '@fortawesome/free-solid-svg-icons';
-import './styles/components/hero.scss';
-import './styles/components/about-section.scss';
-import './styles/components/stats-section.scss';
-import './styles/components/establishments-section.scss';
-import './styles/components/faq.scss';
-import './styles/components/cta-section.scss';
+import './styles/components/home/hero.scss';
+import './styles/components/home/about-section.scss';
+import './styles/components/home/stats-section.scss';
+import './styles/components/home/establishments-section.scss';
+import './styles/components/home/faq.scss';
+import './styles/components/home/cta-section.scss';
 import Faq from './components/Faq';
 import Cta from './components/Cta';
 
