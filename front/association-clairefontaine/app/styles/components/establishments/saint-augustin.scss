@@ -151,6 +151,85 @@
   }
 }
 
+.saint-augustin-services {
+  padding: 4.25rem 2rem 5.5rem;
+  color: white;
+  background-color: $color-augustin;
+
+  &__container {
+    max-width: 1300px;
+    margin: 0 auto;
+
+    > h2 {
+      margin-bottom: 4.5rem;
+      text-align: center;
+      font-size: clamp(2rem, 3vw, 2.4rem);
+      font-weight: 700;
+      line-height: 1.2;
+    }
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4.5rem 3.5rem;
+  }
+}
+
+.service-card {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  padding: 2.9rem 2rem 2rem;
+  border-radius: 1.25rem;
+  color: #111;
+  background-color: white;
+  text-align: center;
+
+  &__icon {
+    display: grid;
+    width: 5.2rem;
+    height: 5.2rem;
+    margin-bottom: 1.35rem;
+    place-items: center;
+    border-radius: 1.25rem;
+    color: $color-augustin;
+    background-color: #f5f7fc;
+
+    svg {
+      width: 2rem;
+      height: 2rem;
+    }
+  }
+
+  h3 {
+    margin-bottom: 0.75rem;
+    font-size: 1.25rem;
+    font-weight: 700;
+    line-height: 1.2;
+  }
+
+  p {
+    max-width: 18rem;
+    color: #777;
+    font-size: 0.95rem;
+    line-height: 1.25;
+  }
+}
+
+@media (max-width: 900px) {
+  .saint-augustin-services {
+    &__container {
+      max-width: 40rem;
+    }
+
+    &__grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 2rem;
+    }
+  }
+}
+
 @media (max-width: 900px) {
   .saint-augustin-hero {
     min-height: 40rem;
@@ -231,5 +310,23 @@
       width: 100%;
       margin: 0 auto;
     }
+  }
+
+  .saint-augustin-services {
+    padding: 3.5rem 1.25rem 4.5rem;
+
+    &__container > h2 {
+      margin-bottom: 2.75rem;
+    }
+
+    &__grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
+  }
+
+  .service-card {
+    min-height: 0;
+    padding: 2.25rem 1.5rem;
   }
 }
