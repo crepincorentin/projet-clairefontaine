@@ -14,6 +14,7 @@ export default function EstablishmentPage({ establishment }) {
     services,
     admission,
     solutions,
+    pricing,
   } = establishment;
 
   const pageStyle = {
@@ -165,6 +166,49 @@ export default function EstablishmentPage({ establishment }) {
                   <p>{solution.description}</p>
                 </article>
               ))}
+            </div>
+          </div>
+        </section>
+      )}
+
+      {pricing && (
+        <section className="pricing-section" aria-labelledby={`${slug}-pricing-title`}>
+          <div className="pricing-section__container">
+            <h2 id={`${slug}-pricing-title`}>{pricing.title}</h2>
+
+            <div className="pricing-section__layout">
+              <div className="pricing-section__table-card">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col">{pricing.columns.label}</th>
+                      <th scope="col">{pricing.columns.price}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {pricing.rows.map((row) => (
+                      <tr key={row.label}>
+                        <th scope="row">{row.label}</th>
+                        <td>{row.price}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+
+                <p className="pricing-section__note">
+                  <strong>{pricing.note.title}</strong> {pricing.note.description}
+                </p>
+              </div>
+
+              <div className="pricing-section__image">
+                <Image
+                  src={pricing.image.src}
+                  alt={pricing.image.alt}
+                  width={pricing.image.width}
+                  height={pricing.image.height}
+                  sizes="(max-width: 850px) 92vw, 480px"
+                />
+              </div>
             </div>
           </div>
         </section>

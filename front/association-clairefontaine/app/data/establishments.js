@@ -143,4 +143,28 @@ export const saintAugustin = {
       },
     ],
   },
+  pricing: {
+    title: 'Tarifs - Aides financières',
+    columns: {
+      label: 'Tarifs',
+      price: 'Prix',
+    },
+    rows: [
+      { label: 'Tarif Hébergement', price: '62,70 €' },
+      { label: 'Tarif Dépendance : GIR 1-2', price: '17,99 €' },
+      { label: 'Tarif Dépendance : GIR 3-4', price: '11,42 €' },
+      { label: 'Tarif Dépendance : GIR 5-6', price: '4,84 €' },
+    ],
+    note: {
+      title: 'Note sur le reste à charge :',
+      description:
+        "Ces tarifs ne tiennent pas compte des aides financières dont vous pouvez bénéficier, telles que l’APA (Allocation Personnalisée d’Autonomie), l’APL ou l’ASH. Nos équipes administratives vous accompagnent dans le montage de vos dossiers.",
+    },
+    image: {
+      src: '/association.png',
+      alt: 'Une accompagnante auprès d’une résidente',
+      width: 552,
+      height: 600,
+    },
+  },
 };
