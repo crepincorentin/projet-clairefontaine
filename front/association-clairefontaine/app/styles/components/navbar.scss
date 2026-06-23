@@ -1,6 +1,8 @@
 @import '../utils/mixins';
 
 .navbar {
+  position: relative;
+  z-index: 50;
   padding: 1rem 2rem;
   background-color: #fff;
   border-bottom: 1px solid #eaeaea;
@@ -23,8 +25,11 @@
 
   &__nav {
     display: flex;
+    align-items: center;
     gap: 2rem;
-    a {
+
+    > a,
+    summary {
       text-decoration: none;
       color: #333;
       font-weight: 500;
@@ -36,7 +41,129 @@
     }
   }
 
+  &__establishments {
+    position: relative;
+
+    summary {
+      display: flex;
+      align-items: center;
+      gap: 0.55rem;
+      cursor: pointer;
+      list-style: none;
+
+      &::-webkit-details-marker {
+        display: none;
+      }
+
+      &::after {
+        content: '';
+        width: 0.45rem;
+        height: 0.45rem;
+        margin-top: -0.2rem;
+        border-right: 2px solid currentColor;
+        border-bottom: 2px solid currentColor;
+        transform: rotate(45deg);
+        transition: transform 0.2s ease, margin-top 0.2s ease;
+      }
+
+      &:focus-visible {
+        border-radius: 3px;
+        outline: 2px solid $color-association;
+        outline-offset: 5px;
+      }
+    }
+
+    &[open] {
+      summary {
+        color: $color-association;
+
+        &::after {
+          margin-top: 0.2rem;
+          transform: rotate(225deg);
+        }
+      }
+    }
+  }
+
+  &__dropdown {
+    position: absolute;
+    top: calc(100% + 1rem);
+    left: 50%;
+    display: flex;
+    flex-direction: column;
+    width: max-content;
+    min-width: 19rem;
+    margin: 0;
+    padding: 0.6rem;
+    border: 1px solid #e7edf0;
+    border-radius: 8px;
+    background-color: white;
+    box-shadow: 0 12px 35px rgba(2, 80, 109, 0.16);
+    transform: translateX(-50%);
+
+    li {
+      list-style: none;
+    }
+
+    &::before {
+      content: '';
+      position: absolute;
+      right: 0;
+      bottom: 100%;
+      left: 0;
+      height: 1rem;
+    }
+
+    a {
+      display: flex;
+      flex-direction: column;
+      gap: 0.2rem;
+      padding: 0.75rem 0.85rem;
+      border-radius: 5px;
+      color: #333;
+      text-decoration: none;
+      transition: color 0.2s ease, background-color 0.2s ease;
+
+      span {
+        font-weight: 600;
+      }
+
+      small {
+        color: #69777d;
+        font-size: 0.8rem;
+      }
+
+      &:hover,
+      &:focus-visible {
+        color: $color-association;
+        background-color: rgba($color-association, 0.08);
+        outline: none;
+      }
+    }
+  }
+
   &__contact-button {
     @include button-style;
+  }
+}
+
+@media (max-width: 900px) {
+  .navbar {
+    padding-inline: 1.25rem;
+
+    &__nav {
+      gap: 1rem;
+      font-size: 0.9rem;
+    }
+
+    &__logo img {
+      width: 125px;
+      height: auto;
+    }
+
+    &__contact-button {
+      padding: 0.7rem 1rem;
+      font-size: 0.9rem;
+    }
   }
 }
