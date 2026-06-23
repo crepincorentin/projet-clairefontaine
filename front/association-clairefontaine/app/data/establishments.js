@@ -167,4 +167,14 @@ export const saintAugustin = {
       height: 600,
     },
   },
+  location: {
+    title: 'Nous Trouver',
+    name: 'EHPAD Maison de Famille Saint-Augustin',
+    address: '27 Rue de la Gare, 59380 Bergues',
+    phone: '03 28 68 60 76',
+    phoneHref: 'tel:+33328686076',
+    mapEmbedUrl:
+      'https://www.google.com/maps?q=27+Rue+de+la+Gare,+59380+Bergues&output=embed',
+    mapUrl: 'https://www.google.com/maps/search/?api=1&query=27+Rue+de+la+Gare,+59380+Bergues',
+  },
 };

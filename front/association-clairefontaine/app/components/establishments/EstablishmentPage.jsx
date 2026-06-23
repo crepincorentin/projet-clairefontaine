@@ -15,6 +15,7 @@ export default function EstablishmentPage({ establishment }) {
     admission,
     solutions,
     pricing,
+    location,
   } = establishment;
 
   const pageStyle = {
@@ -209,6 +210,36 @@ export default function EstablishmentPage({ establishment }) {
                   sizes="(max-width: 850px) 92vw, 480px"
                 />
               </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {location && (
+        <section className="location-section" aria-labelledby={`${slug}-location-title`}>
+          <div className="location-section__container">
+            <h2 id={`${slug}-location-title`}>{location.title}</h2>
+
+            <div className="location-section__map">
+              <iframe
+                src={location.mapEmbedUrl}
+                title={`Carte de ${location.name}`}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+              />
+            </div>
+
+            <div className="location-section__details">
+              <h3>{location.name}</h3>
+              <a
+                href={location.mapUrl}
+                target="_blank"
+                rel="noreferrer"
+                className="location-section__address"
+              >
+                {location.address}
+              </a>
+              <a href={location.phoneHref}>{location.phone}</a>
             </div>
           </div>
         </section>
