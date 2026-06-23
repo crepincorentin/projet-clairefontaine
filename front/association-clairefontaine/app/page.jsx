@@ -13,7 +13,7 @@ import Faq from './components/Faq';
 import Cta from './components/Cta';
 
 const establishments = [
-  { name: 'Maison de famille Saint-Augustin (Bergues)', image: '/saint-augustin.jpeg', link: '/etablissements/saint-augustin' },
+  { name: 'Maison de famille Saint-Augustin (Bergues)', image: '/saint-augustin.jpeg', link: '/saint-augustin' },
   { name: 'Maison de famille Clairefontaine (Hazebrouck)', image: '/clairefontaine.jpg', link: '/etablissements/clairefontaine' },
   { name: 'Maison de famille Jeanne Jugan (Dunkerque)', image: '/jeanne-jugan.jpg', link: '/etablissements/jeanne-jugan' },
   { name: 'Résidence autonomie Montjoie (Dunkerque)', image: '/montjoie.jpg', link: '/etablissements/montjoie' },

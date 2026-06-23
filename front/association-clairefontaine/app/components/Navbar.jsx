@@ -6,7 +6,7 @@ const establishments = [
   {
     name: 'Maison de famille Saint-Augustin',
     city: 'Bergues',
-    href: '/etablissements/saint-augustin',
+    href: '/saint-augustin',
   },
   {
     name: 'Maison de famille Clairefontaine',

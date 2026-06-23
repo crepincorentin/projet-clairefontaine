@@ -1,0 +1,235 @@
+@import '../../utils/palette';
+@import '../../utils/mixins';
+
+.saint-augustin-page {
+  color: $text-dark;
+  background-color: white;
+}
+
+.saint-augustin-hero {
+  min-height: 46rem;
+  padding: 3.5rem 2rem 0;
+  background: linear-gradient(to bottom, $color-augustin 0, $color-augustin 31.5rem, white 31.5rem);
+
+  &__heading {
+    margin-bottom: 2.75rem;
+    color: white;
+    text-align: center;
+
+    h1 {
+      margin-bottom: 1rem;
+      font-size: clamp(2.25rem, 3.4vw, 3rem);
+      font-weight: 700;
+      line-height: 1.08;
+
+      span {
+        display: block;
+      }
+    }
+
+    p {
+      font-size: 1.55rem;
+      line-height: 1.2;
+    }
+  }
+
+  &__visual {
+    position: relative;
+    width: min(50rem, calc(100% - 10rem));
+    margin: 0 auto;
+  }
+
+  &__image {
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    border: 1.25rem solid rgba(255, 255, 255, 0.2);
+    border-radius: 2.5rem;
+    background-color: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 1.5rem 2.5rem rgba(23, 33, 48, 0.1);
+
+    img {
+      object-fit: cover;
+      border-radius: 1.25rem;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 14.5rem;
+    min-height: 5.75rem;
+    padding: 1rem 1.5rem;
+    border-radius: 999px;
+    color: white;
+    background-color: #1d2330;
+    text-align: center;
+    font-size: 1rem;
+    line-height: 1.2;
+
+    strong {
+      display: inline;
+      margin-right: 0.2rem;
+    }
+
+    span {
+      display: block;
+    }
+
+    &--staff {
+      top: 47%;
+      left: -6.5rem;
+    }
+
+    &--location {
+      right: -6.5rem;
+      bottom: 4.5rem;
+    }
+  }
+}
+
+.saint-augustin-about {
+  padding: 4.5rem 2rem 7rem;
+
+  &__container {
+    display: grid;
+    grid-template-columns: minmax(18rem, 25rem) minmax(0, 29rem);
+    align-items: center;
+    justify-content: center;
+    gap: clamp(4rem, 8vw, 7rem);
+    max-width: 75rem;
+    margin: 0 auto;
+  }
+
+  &__image {
+    overflow: hidden;
+    aspect-ratio: 1.3 / 1;
+    border-radius: 2rem;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 42%;
+    }
+  }
+
+  &__eyebrow {
+    display: block;
+    margin-bottom: 0.55rem;
+    color: $color-association;
+    font-size: 0.9rem;
+    font-weight: 700;
+  }
+
+  &__content {
+    h2 {
+      margin-bottom: 1.5rem;
+      color: #244a6b;
+      font-size: clamp(2rem, 3vw, 2.6rem);
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
+    p {
+      margin-bottom: 1.5rem;
+      color: #686868;
+      font-size: 1rem;
+      line-height: 1.3;
+    }
+  }
+
+  &__button {
+    @include button-style;
+    display: inline-block;
+    padding: 0.75rem 1.4rem;
+  }
+}
+
+@media (max-width: 900px) {
+  .saint-augustin-hero {
+    min-height: 40rem;
+    background: linear-gradient(to bottom, $color-augustin 0, $color-augustin 27rem, white 27rem);
+
+    &__visual {
+      width: min(43rem, calc(100% - 5rem));
+    }
+
+    &__badge {
+      width: 11rem;
+      min-height: 4.75rem;
+      font-size: 0.9rem;
+
+      &--staff {
+        left: -3rem;
+      }
+
+      &--location {
+        right: -3rem;
+        bottom: 2.5rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 700px) {
+  .saint-augustin-hero {
+    min-height: auto;
+    padding: 3rem 1.25rem 2rem;
+    background: $color-augustin;
+
+    &__heading {
+      margin-bottom: 2rem;
+
+      p {
+        font-size: 1.25rem;
+      }
+    }
+
+    &__visual {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.75rem;
+      width: 100%;
+    }
+
+    &__image {
+      flex-basis: 100%;
+      border-width: 0.65rem;
+      border-radius: 1.5rem;
+
+      img {
+        border-radius: 0.8rem;
+      }
+    }
+
+    &__badge {
+      position: static;
+      flex: 1 1 9rem;
+      width: auto;
+      min-height: 4.25rem;
+      padding: 0.75rem 1rem;
+      font-size: 0.85rem;
+    }
+  }
+
+  .saint-augustin-about {
+    padding: 3.5rem 1.25rem 5rem;
+
+    &__container {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    &__image {
+      max-width: 32rem;
+      width: 100%;
+      margin: 0 auto;
+    }
+  }
+}
