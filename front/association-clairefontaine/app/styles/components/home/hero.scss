@@ -1,58 +1,68 @@
 @import '../../utils/mixins';
+@import '../../utils/palette';
 
 .hero {
   position: relative;
-  height: 60vh;
+  height: 70vh;
+  min-height: 500px;
   display: flex;
   align-items: center;
   color: white;
-  text-align: left;
-  padding: 0 13rem;
-  overflow: hidden; // To contain the pseudo-element
+  overflow: hidden;
 
   &::before {
     content: '';
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.4); // Voile sombre à 40%
-    z-index: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 1;
   }
 }
 
 .hero__background {
   position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  z-index: -1;
+  z-index: 0;
 }
 
 .hero__content {
-  max-width: 600px;
-  position: relative; // Pour s'assurer que le contenu est au-dessus du voile
-  z-index: 1;
-}
+  position: relative;
+  z-index: 2;
+  max-width: 1300px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: left;
 
-.hero h1 {
-  font-size: 3.5rem;
-  font-weight: bold;
-  margin-bottom: 1rem;
-  line-height: 1.2;
-}
+  h1 {
+    font-size: clamp(2.5rem, 5vw, 3.8rem);
+    font-weight: 700;
+    line-height: 1.1;
+    margin-bottom: 1rem;
+    max-width: 18ch;
+    text-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  }
 
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
+  p {
+    font-size: clamp(1rem, 2.5vw, 1.2rem);
+    margin-bottom: 2.5rem;
+    max-width: 50ch;
+    line-height: 1.6;
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+  }
 }
 
 .hero__button {
-    @include button-style;
+  @include button-style($background-color: $color-association, $text-color: white);
+  padding: 0.9rem 2.2rem;
+  font-size: 1.1rem;
+  font-weight: 600;
 }
 
-.hero__button:hover {
-  background-color: #0056b3;
+@media (max-width: 768px) {
+  .hero {
+    height: 60vh;
+  }
 }

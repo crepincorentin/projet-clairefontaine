@@ -362,7 +362,7 @@ export const jeannejugan = {
     title: ['EHPAD Maison de', 'Famille Jeanne Jugan'],
     location: 'Dunkerque',
     image: {
-      src: '/clairefontaine.jpeg',
+      src: '/jeannejugan.jpeg',
       alt: 'Façade de la Maison de Famille Jeanne Jugan à Dunkerque',
     },
     staff: {
@@ -381,7 +381,7 @@ export const jeannejugan = {
     description:
       'Établissement privé à but non lucratif, la Maison Jeanne Jugan accueille 72 résidents dans un cadre moderne édifié sur 4 niveaux. Notre mission : entretenir votre capacité d\'initiative à travers un projet d\'accompagnement 100% personnalisé.',
     image: {
-      src: '/clairefontaine_exterieur.jpeg',
+      src: '/jeannejugan_interieur.jpeg',
       alt: 'Une résidente participant à une activité accompagnée',
       width: 552,
       height: 600,
@@ -460,7 +460,7 @@ export const jeannejugan = {
     description:
       "Découvrez nos 65 solutions d'accueil à Bergues, du séjour permanent à l'unité Alzheimer. Un cadre bienveillant incluant un accueil de jour et des solutions de répit pour les aidants.",
     image: {
-      src: '/clairefontaine_interieur.jpeg',
+      src: '/jeannejugan_lieudevie.jpeg',
       alt: 'Des résidents partageant un moment convivial',
       width: 522,
       height: 546,
@@ -506,7 +506,7 @@ export const jeannejugan = {
         "Ces tarifs ne tiennent pas compte des aides financières dont vous pouvez bénéficier, telles que l’APA (Allocation Personnalisée d’Autonomie), l’APL ou l’ASH. Nos équipes administratives vous accompagnent dans le montage de vos dossiers.",
     },
     image: {
-      src: '/clairefontaine_cour.jpeg',
+      src: '/jeannejugan_exterieur.jpeg',
       alt: 'Une accompagnante auprès d’une résidente',
       width: 552,
       height: 600,

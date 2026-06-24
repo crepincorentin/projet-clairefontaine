@@ -1,4 +1,5 @@
 @import '../../utils/palette';
+@import '../../utils/mixins';
 
 .faq-section {
   padding: 5rem 2rem;
@@ -6,8 +7,7 @@
 
   &__title {
     text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
+    font-size: clamp(2rem, 5vw, 2.5rem);
     color: $color-association;
     margin-bottom: 3rem;
   }
@@ -29,12 +29,14 @@
   &__question-item {
     display: flex;
     align-items: center;
-    padding: 1rem 1.5rem;
+    padding: 1.25rem 1.5rem;
     border-radius: 8px;
     cursor: pointer;
-    transition: background-color 0.3s ease;
+    transition: background-color 0.3s ease, border-color 0.3s ease;
     border: 1px solid #e0e0e0;
     background-color: white;
+    position: relative;
+    overflow: hidden;
 
     .icon-container {
       display: flex;
@@ -46,7 +48,7 @@
         width: 20px;
         height: 20px;
         border-radius: 50%;
-        background-color: #0287B7;
+        background-color: $color-association;
         transition: background-color 0.3s ease;
       }
     }
@@ -54,32 +56,39 @@
     .text {
       flex-grow: 1;
     }
-
+ 
     .arrow-icon {
       color: #ccc;
-      transition: color 0.3s ease;
+      transition: color 0.3s ease, transform 0.3s ease;
+    }
+
+    &:hover:not(.active) {
+      border-color: $color-association;
     }
 
     &.active {
-      background-color: #e7f3ff;
-      border-color: transparent;
+      background-color: white;
+      border-color: $color-association;
+      box-shadow: 0 4px 15px rgba($color-association, 0.1);
 
       .circle-icon {
-        background-color: #02506D;
+        background-color: $color-augustin;
       }
       .arrow-icon {
-        color: #02506D;
+        color: $color-augustin;
+        transform: rotate(90deg);
       }
     }
   }
 
   &__answer-panel {
     flex: 1;
-    padding: 2rem;
+    padding: 2.5rem;
     background-color: white;
-    border-radius: 12px;
-    border: 1px solid #e0e0e0;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+    border-radius: 16px;
+    border: 1px solid #e9ecef;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.07);
+    border-top: 4px solid $color-association;
     
     h3 {
       font-size: 1.2rem;
@@ -90,6 +99,24 @@
     p {
       font-size: 1rem;
       line-height: 1.6;
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .faq-section {
+    padding: 4rem 1.5rem;
+
+    &__container {
+      flex-direction: column;
+    }
+
+    &__questions {
+      margin-bottom: 1rem;
+    }
+
+    &__answer-panel {
+      padding: 2rem;
     }
   }
 }

@@ -33,7 +33,7 @@ export default function HomePage() {
         <Image
           src="/home-image.jpg"
           alt="L'humain au coeur du grand âge"
-          layout="fill"
+          fill
           objectFit="cover"
           className="hero__background"
           loading='eager'
