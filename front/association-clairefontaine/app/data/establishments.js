@@ -175,6 +175,7 @@ export const saintAugustin = {
     phoneHref: 'tel:+33328686076',
     mapEmbedUrl:
       'https://www.google.com/maps?q=27+Rue+de+la+Gare,+59380+Bergues&output=embed',
+    coords: [50.9689, 2.4347],
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=27+Rue+de+la+Gare,+59380+Bergues',
   },
 };
@@ -347,6 +348,7 @@ export const clairefontaine = {
     phoneHref: 'tel:+33328416707',
     mapEmbedUrl:
       'https://www.google.com/maps?q=48+Rue+du+Maréchal+de+Lattre+de+Tassigny,+59190+Hazebrouck&output=embed',
+    coords: [50.7246, 2.5394],
     mapUrl:
       'https://www.google.com/maps/search/?api=1&query=48+Rue+du+Maréchal+de+Lattre+de+Tassigny,+59190+Hazebrouck',
   },
@@ -520,6 +522,7 @@ export const jeannejugan = {
     phoneHref: 'tel:+33328691080',
     mapEmbedUrl:
       ' https://www.google.com/maps?q=192+Rue+Jeanne+Jugan,+59240+Dunkerque&output=embed',
+    coords: [51.0346, 2.3771],
     mapUrl: 'https://www.google.com/maps/search/?api=1&query=192+Rue+Jeanne+Jugan,+59240+Dunkerque',
   },
 };

@@ -1,0 +1,90 @@
+'use client';
+
+import { useMemo } from 'react';
+import dynamic from 'next/dynamic';
+import { clairefontaine, jeannejugan, saintAugustin } from '../data/establishments';
+
+const locations = [
+  {
+    ...saintAugustin.location,
+    coords: saintAugustin.location.coords,
+    className: 'contact-map__marker--augustin',
+    theme: saintAugustin.theme,
+  },
+  {
+    ...clairefontaine.location,
+    className: 'contact-map__marker--clairefontaine',
+    theme: clairefontaine.theme,
+    coords: clairefontaine.location.coords,
+  },
+  {
+    ...jeannejugan.location,
+    className: 'contact-map__marker--jeanne-jugan',
+    coords: jeannejugan.location.coords,
+    theme: jeannejugan.theme,
+  },
+];
+
+export default function ContactForm() {
+  // Importation dynamique du composant de la carte pour un chargement côté client uniquement.
+  const InteractiveMap = useMemo(
+    () =>
+      dynamic(() => import('./InteractiveMap'), {
+        ssr: false, // Désactive le rendu côté serveur pour ce composant
+        loading: () => <p style={{ textAlign: 'center' }}>Chargement de la carte...</p>,
+      }),
+    [],
+  );
+  return (
+    <section className="contact-content" aria-labelledby="contact-form-title">
+      <div className="contact-content__container">
+        <div className="contact-content__form-column">
+          <div className="contact-content__intro">
+            <h2 id="contact-form-title">Échangeons sur vos besoins</h2>
+            <p>
+              Une question sur nos établissements ou sur les modalités d&apos;admission ? Notre
+              équipe vous accompagne et vous oriente vers la solution la plus adaptée.
+            </p>
+            <p>
+              Remplissez ce formulaire : nous reviendrons vers vous dans les meilleurs délais.
+            </p>
+          </div>
+
+          <form className="contact-form" method="get">
+            <div className="contact-form__row">
+              <div className="contact-form__field">
+                <label htmlFor="last-name">Nom</label>
+                <input id="last-name" name="nom" type="text" autoComplete="family-name" placeholder=" " required />
+              </div>
+              <div className="contact-form__field">
+                <label htmlFor="first-name">Prénom</label>
+                <input id="first-name" name="prenom" type="text" autoComplete="given-name" placeholder=" " required />
+              </div>
+            </div>
+
+            <div className="contact-form__field">
+              <label htmlFor="email">Email</label>
+              <input id="email" name="email" type="email" autoComplete="email" placeholder=" " required />
+            </div>
+
+            <div className="contact-form__field">
+              <label htmlFor="phone">Numéro de téléphone</label>
+              <input id="phone" name="telephone" type="tel" autoComplete="tel" placeholder=" " />
+            </div>
+
+            <button type="submit" className="contact-form__submit">
+              Envoyer
+            </button>
+          </form>
+        </div>
+
+        <div className="contact-map" aria-label="Localisation de nos établissements">
+          <div className="contact-map__decoration" aria-hidden="true" />
+          <div className="contact-map__frame">
+            <InteractiveMap locations={locations} />
+          </div>
+        </div>
+      </div>
+    </section>
+  );
+}
