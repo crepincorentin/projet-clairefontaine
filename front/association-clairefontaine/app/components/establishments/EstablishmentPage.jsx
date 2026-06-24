@@ -1,6 +1,11 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import {
+  faArrowUpRightFromSquare,
+  faLocationDot,
+  faPhone,
+} from '@fortawesome/free-solid-svg-icons';
 import '../../styles/components/establishments/establishment-page.scss';
 
 const stepModifiers = ['one', 'two', 'three'];
@@ -218,28 +223,49 @@ export default function EstablishmentPage({ establishment }) {
       {location && (
         <section className="location-section" aria-labelledby={`${slug}-location-title`}>
           <div className="location-section__container">
-            <h2 id={`${slug}-location-title`}>{location.title}</h2>
-
-            <div className="location-section__map">
-              <iframe
-                src={location.mapEmbedUrl}
-                title={`Carte de ${location.name}`}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-              />
+            <div className="location-section__heading">
+              <h2 id={`${slug}-location-title`}>{location.title}</h2>
+              <p>Retrouvez-nous facilement.</p>
             </div>
 
-            <div className="location-section__details">
-              <h3>{location.name}</h3>
-              <a
-                href={location.mapUrl}
-                target="_blank"
-                rel="noreferrer"
-                className="location-section__address"
-              >
-                {location.address}
-              </a>
-              <a href={location.phoneHref}>{location.phone}</a>
+            <div className="location-section__card">
+              <div className="location-section__map">
+                <iframe
+                  src={location.mapEmbedUrl.trim()}
+                  title={`Carte de ${location.name}`}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                />
+              </div>
+
+              <div className="location-section__details">
+                <div className="location-section__marker" aria-hidden="true">
+                  <FontAwesomeIcon icon={faLocationDot} />
+                </div>
+
+                <span className="location-section__label">Notre adresse</span>
+                <h3>{location.name}</h3>
+
+                <div className="location-section__contact">
+                  <FontAwesomeIcon icon={faLocationDot} aria-hidden="true" />
+                  <span>{location.address}</span>
+                </div>
+
+                <a className="location-section__contact" href={location.phoneHref}>
+                  <FontAwesomeIcon icon={faPhone} aria-hidden="true" />
+                  <span>{location.phone}</span>
+                </a>
+
+                <a
+                  href={location.mapUrl}
+                  target="_blank"
+                  rel="noreferrer"
+                  className="location-section__directions"
+                >
+                  Calculer l’itinéraire
+                  <FontAwesomeIcon icon={faArrowUpRightFromSquare} aria-hidden="true" />
+                </a>
+              </div>
             </div>
           </div>
         </section>
