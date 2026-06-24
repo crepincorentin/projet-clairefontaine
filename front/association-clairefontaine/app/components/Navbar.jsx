@@ -11,7 +11,7 @@ const establishments = [
   {
     name: 'Maison de famille Clairefontaine',
     city: 'Hazebrouck',
-    href: '/etablissements/clairefontaine',
+    href: '/clairefontaine',
   },
   {
     name: 'Maison de famille Jeanne Jugan',

@@ -375,12 +375,14 @@
       height: 22rem;
       border-radius: 50%;
       background-color: #f6f7fc;
+      background-color: color-mix(in srgb, var(--establishment-color) 7%, white);
     }
 
     .admission-step__number {
       top: -2.4rem;
       left: 8.3rem;
       color: #e9ebf2;
+      color: color-mix(in srgb, var(--establishment-color) 22%, white);
     }
   }
 }
