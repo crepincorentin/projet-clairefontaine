@@ -1,60 +1,98 @@
 @import '../../utils/palette';
+@import '../../utils/mixins';
 
 .stats-section {
+  padding: 4rem 2rem; 
   background-color: $color-association;
-  color: white;
-  padding: 3rem 2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
 
   &__container {
     display: flex;
     align-items: center;
     justify-content: space-between;
+    gap: 3rem;
     width: 100%;
     max-width: 1300px;
+    margin: 0 auto;
   }
 
   &__title-container {
-    flex-basis: 25%;
-    text-align: center;
-    padding-right: 2rem;
-    border-right: 1px solid rgba(255, 255, 255, 0.5);
-    
-    h3 {
-      font-size: 1.5rem;
-      font-weight: normal;
+    flex: 1 1 30%;
+    max-width: 20rem;
+
+    h2 {
+      color: white;
+      font-size: clamp(1.8rem, 3vw, 2.2rem);
+      font-weight: 700;
+      line-height: 1.2;
     }
   }
 
   &__stats {
-    flex-basis: 75%;
+    flex: 1 1 70%;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    gap: 2rem;
   }
 
   &__stat {
     text-align: center;
+    position: relative;
+    flex: 1;
+
+    &:not(:last-child)::after {
+      content: '';
+      position: absolute;
+      top: 50%;
+      right: -1rem;
+      transform: translateY(-50%);
+      width: 1px;
+      height: 4rem;
+      background-color: rgba(255, 255, 255, 0.3);
+    }
 
     .number {
-      font-size: 4rem;
-      font-weight: bold;
+      font-size: clamp(3rem, 6vw, 4rem);
+      font-weight: 700;
       display: block;
+      color: white;
+      line-height: 1.1;
     }
 
     .label {
-      font-size: 1.2rem;
+      font-size: clamp(0.9rem, 2vw, 1.1rem);
       display: flex;
       align-items: center;
       justify-content: center;
       gap: 0.5rem;
+      color: rgba(255, 255, 255, 0.85);
 
-        svg {
-            width: 1.5rem;
-            height: 1.5rem;
-        }
+      svg {
+        width: 1.2rem;
+        height: 1.2rem;
+        color: white;
+      }
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .stats-section {
+    padding: 3rem 1.5rem;
+
+    &__container {
+      flex-direction: column;
+      text-align: center;
+      gap: 2.5rem;
+    }
+
+    &__stats {
+      width: 100%;
+      gap: 1rem;
+    }
+
+    &__stat:not(:last-child)::after {
+      right: -0.5rem;
     }
   }
 }
