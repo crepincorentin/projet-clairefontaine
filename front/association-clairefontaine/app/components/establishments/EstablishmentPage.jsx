@@ -39,41 +39,35 @@ export default function EstablishmentPage({ establishment }) {
         </div>
 
         <div className="establishment-hero__visual">
-          <div className="establishment-hero__image">
-            <Image
-              src={hero.image.src}
-              alt={hero.image.alt}
-              fill
-              priority
-              sizes="(max-width: 768px) 92vw, 800px"
-            />
+          <div className="establishment-hero__decoration" aria-hidden="true" />
+          <div className="establishment-hero__badges">
+            <div className="establishment-hero__badge establishment-hero__badge--staff">
+              <span>
+                <strong>{hero.staff.value}</strong> {hero.staff.firstLine}
+              </span>
+              <span>{hero.staff.secondLine}</span>
+            </div>
+            <div className="establishment-hero__badge establishment-hero__badge--location">
+              {hero.locationBadge.firstLine}
+              <span>{hero.locationBadge.secondLine}</span>
+            </div>
           </div>
-
-          <div className="establishment-hero__badge establishment-hero__badge--staff">
-            <span>
-              <strong>{hero.staff.value}</strong> {hero.staff.firstLine}
-            </span>
-            <span>{hero.staff.secondLine}</span>
-          </div>
-          <div className="establishment-hero__badge establishment-hero__badge--location">
-            {hero.locationBadge.firstLine}
-            <span>{hero.locationBadge.secondLine}</span>
+          <div className="establishment-hero__image-wrapper">
+            <div className="establishment-hero__image">
+              <Image
+                src={hero.image.src}
+                alt={hero.image.alt}
+                fill
+                priority
+                sizes="(max-width: 768px) 92vw, 800px"
+              />
+            </div>
           </div>
         </div>
       </section>
 
       <section className="establishment-about" aria-labelledby={`${slug}-about-title`}>
         <div className="establishment-about__container">
-          <div className="establishment-about__image">
-            <Image
-              src={about.image.src}
-              alt={about.image.alt}
-              width={about.image.width}
-              height={about.image.height}
-              sizes="(max-width: 768px) 92vw, 440px"
-            />
-          </div>
-
           <div className="establishment-about__content">
             <span className="establishment-about__eyebrow">{about.eyebrow}</span>
             <h2 id={`${slug}-about-title`}>{about.title}</h2>
@@ -81,6 +75,19 @@ export default function EstablishmentPage({ establishment }) {
             <Link href={about.button.href} className="establishment-about__button">
               {about.button.label}
             </Link>
+          </div>
+
+          <div className="establishment-about__visual">
+            <div className="establishment-about__decoration" aria-hidden="true" />
+            <div className="establishment-about__image">
+              <Image
+                src={about.image.src}
+                alt={about.image.alt}
+                width={about.image.width}
+                height={about.image.height}
+                sizes="(max-width: 1050px) 92vw, 480px"
+              />
+            </div>
           </div>
         </div>
       </section>
