@@ -7,7 +7,7 @@
 
 .contact-hero {
   position: relative;
-  min-height: 330px;
+  min-height: clamp(18rem, 34vw, 330px);
   overflow: hidden;
   isolation: isolate;
 
@@ -31,7 +31,7 @@
     align-items: center;
     justify-content: flex-end;
     width: min(100% - 4rem, 1080px);
-    min-height: 330px;
+    min-height: clamp(18rem, 34vw, 330px);
     margin: 0 auto;
 
     h1 {
@@ -46,14 +46,14 @@
 }
 
 .contact-content {
-  padding: clamp(5rem, 9vw, 9rem) 2rem clamp(6rem, 10vw, 10rem);
+  padding: clamp(4.5rem, 8vw, 8rem) 2rem clamp(5rem, 9vw, 9rem);
   background: #fff;
 
   &__container {
     display: grid;
     grid-template-columns: minmax(0, 1fr) minmax(340px, 0.88fr);
     align-items: center;
-    gap: clamp(4rem, 8vw, 8rem);
+    gap: clamp(3rem, 7vw, 7rem);
     width: 100%;
     max-width: 1080px;
     margin: 0 auto;
@@ -171,7 +171,7 @@
 
 .contact-map {
   position: relative;
-  min-height: 570px;
+  min-height: clamp(28rem, 48vw, 570px);
 
   &__decoration {
     position: absolute;
@@ -192,10 +192,26 @@
   }
 }
 @media (max-width: 900px) {
+  .contact-hero {
+    &__overlay {
+      background: linear-gradient(90deg, rgba(2, 135, 183, 0.08), rgba(2, 135, 183, 0.88));
+    }
+
+    &__container {
+      width: min(100% - 3rem, 1080px);
+
+      h1 {
+        width: 55%;
+      }
+    }
+  }
+
   .contact-content {
+    padding: 4.5rem 1.5rem 5.5rem;
+
     &__container {
       grid-template-columns: 1fr;
-      gap: 7rem;
+      gap: 3.5rem;
     }
 
     &__form-column {
@@ -205,8 +221,14 @@
 
   .contact-map {
     width: min(100%, 600px);
-    min-height: 500px;
+    min-height: 430px;
     margin: 0 auto;
+
+    &__decoration {
+      top: -38px;
+      right: -28px;
+      bottom: -38px;
+    }
   }
 }
 
@@ -219,7 +241,7 @@
     }
 
     &__overlay {
-      background: linear-gradient(90deg, rgba(2, 135, 183, 0.12), rgba(2, 135, 183, 0.92));
+      background: linear-gradient(to top, rgba(2, 80, 109, 0.88), rgba(2, 135, 183, 0.18));
     }
 
     &__container {
@@ -230,16 +252,24 @@
 
       h1 {
         width: 100%;
-        text-align: right;
+        text-align: left;
       }
     }
   }
 
   .contact-content {
-    padding: 4.5rem 1.25rem 6rem;
+    padding: 3.75rem 1.25rem 4.75rem;
 
     &__container {
-      gap: 5.5rem;
+      gap: 3rem;
+    }
+
+    &__intro {
+      margin-bottom: 1.75rem;
+
+      p {
+        line-height: 1.65;
+      }
     }
   }
 
@@ -248,13 +278,51 @@
   }
 
   .contact-map {
-    min-height: 420px;
+    min-height: 360px;
 
     &__decoration {
       top: -38px;
       right: -12px;
       bottom: -38px;
       border-radius: 0 32px 32px 0;
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .contact-hero {
+    min-height: 230px;
+
+    &__container {
+      min-height: 230px;
+      padding-bottom: 2rem;
+    }
+  }
+
+  .contact-content {
+    padding: 3.25rem 1rem 4rem;
+  }
+
+  .contact-form {
+    gap: 0.85rem;
+
+    &__submit {
+      width: 100%;
+    }
+  }
+
+  .contact-map {
+    min-height: 300px;
+
+    &__decoration {
+      display: none;
+    }
+
+    &__frame {
+      position: relative;
+      min-height: 300px;
+      border: 1px solid #dfe7e9;
+      box-shadow: 0 14px 30px rgba(2, 80, 109, 0.12);
     }
   }
 }

@@ -1,8 +1,12 @@
 'use client';
 
-import { useMemo } from 'react';
 import dynamic from 'next/dynamic';
 import { clairefontaine, jeannejugan, saintAugustin } from '../data/establishments';
+
+const InteractiveMap = dynamic(() => import('./InteractiveMap'), {
+  ssr: false,
+  loading: () => <p style={{ textAlign: 'center' }}>Chargement de la carte...</p>,
+});
 
 const locations = [
   {
@@ -26,15 +30,6 @@ const locations = [
 ];
 
 export default function ContactForm() {
-  // Importation dynamique du composant de la carte pour un chargement côté client uniquement.
-  const InteractiveMap = useMemo(
-    () =>
-      dynamic(() => import('./InteractiveMap'), {
-        ssr: false, // Désactive le rendu côté serveur pour ce composant
-        loading: () => <p style={{ textAlign: 'center' }}>Chargement de la carte...</p>,
-      }),
-    [],
-  );
   return (
     <section className="contact-content" aria-labelledby="contact-form-title">
       <div className="contact-content__container">
