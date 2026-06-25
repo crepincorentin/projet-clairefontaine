@@ -3,9 +3,7 @@
 .management-section {
   padding: clamp(4.5rem, 7vw, 7rem) 2rem;
   color: $text-dark;
-  background:
-    linear-gradient(90deg, rgba(2, 135, 183, 0.08) 0%, rgba(2, 135, 183, 0) 48%),
-    #f7fbfd;
+  background: $color-association;
 
   &__container {
     display: grid;
@@ -55,7 +53,7 @@
     padding: 1.1rem 1.25rem;
     border-left: 0.35rem solid $color-jeanne-jugan;
     background-color: white;
-    box-shadow: 0 1rem 2rem rgba(2, 80, 109, 0.14);
+    box-shadow: 0 1rem 2rem rgba(2, 80, 109, 0.28);
 
     span,
     strong {
@@ -77,7 +75,7 @@
     padding: clamp(2rem, 4vw, 3.5rem);
     border-left: 4px solid $color-association;
     background-color: white;
-    box-shadow: 0 1.25rem 3rem rgba(2, 80, 109, 0.08);
+    box-shadow: 0 1.25rem 3rem rgba(2, 80, 109, 0.2);
 
     &::before {
       display: block;
@@ -145,11 +143,25 @@
 @media (max-width: 1000px) {
   .management-section {
     &__container {
-      grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1fr);
-      gap: 3rem;
+      grid-template-columns: minmax(15rem, 0.72fr) minmax(0, 1fr);
+      gap: 2.5rem;
+    }
+
+    &__visual {
+      width: min(100%, 26rem);
+    }
+
+    &__badge {
+      right: -1rem;
     }
 
     &__content {
+      padding: 2rem;
+
+      &::before {
+        font-size: 5rem;
+      }
+
       p {
         font-size: 1rem;
         line-height: 1.6;
@@ -179,6 +191,14 @@
       min-width: 11rem;
     }
 
+    &__image {
+      aspect-ratio: 4 / 3;
+
+      img {
+        object-position: center 20%;
+      }
+    }
+
     &__content {
       padding: 2rem 1.35rem;
 
@@ -194,13 +214,39 @@
   }
 }
 
-@media (max-width: 420px) {
+@media (max-width: 480px) {
   .management-section {
+    padding: 3.25rem 1.25rem;
+
+    &__container {
+      gap: 2rem;
+    }
+
+    &__visual {
+      max-width: none;
+    }
+
+    &__image {
+      aspect-ratio: 1 / 0.78;
+    }
+
     &__badge {
       position: static;
       min-width: 0;
-      margin: 0 auto;
+      margin: 0;
       border-left-width: 0.28rem;
+    }
+
+    &__content {
+      padding: 1.75rem 1.2rem;
+
+      &::before {
+        font-size: 4rem;
+      }
+
+      p {
+        line-height: 1.58;
+      }
     }
   }
 }

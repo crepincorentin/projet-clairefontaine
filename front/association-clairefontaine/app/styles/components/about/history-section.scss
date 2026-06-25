@@ -115,3 +115,30 @@
     }
   }
 }
+
+@media (max-width: 480px) {
+  .history-section {
+    padding: 3.25rem 1.25rem;
+
+    &__content {
+      gap: 1.5rem;
+
+      p {
+        font-size: 1rem;
+        line-height: 1.65;
+      }
+    }
+
+    &__lead {
+      text-align: left;
+    }
+
+    &__card {
+      padding: 1.35rem;
+    }
+
+    &__mission {
+      padding: 1rem 1.15rem;
+    }
+  }
+}

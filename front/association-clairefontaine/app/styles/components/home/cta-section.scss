@@ -3,25 +3,29 @@
 
 .cta-section {
   position: relative;
-  padding: 4rem 4rem;
+  width: min(calc(100% - 4rem), 1300px);
+  margin: clamp(3.5rem, 6vw, 5rem) auto;
+  padding: clamp(2.5rem, 5vw, 4rem);
   background: $blue-gradient;
   color: white;
   border-radius: 12px;
-  margin: 5rem auto;
-  max-width: 1300px;
   overflow: hidden;
 
   &__content {
-    max-width: 80%;
+    position: relative;
+    z-index: 1;
+    max-width: min(100%, 44rem);
     
     h2 {
-      font-size: 2.5rem;
+      max-width: 14ch;
+      font-size: clamp(2rem, 4vw, 2.5rem);
       font-weight: bold;
       margin-bottom: 1rem;
+      line-height: 1.12;
     }
 
     p {
-      font-size: 1.1rem;
+      font-size: clamp(1rem, 1.7vw, 1.1rem);
       line-height: 1.6;
       margin-bottom: 2rem;
       max-width: 700px;
@@ -36,8 +40,42 @@
     position: absolute;
     bottom: 0px;
     right: 20px;
-    width: 150px;
+    width: clamp(6rem, 12vw, 9.375rem);
     height: auto;
     opacity: 0.5;
+  }
+}
+
+@media (max-width: 700px) {
+  .cta-section {
+    width: calc(100% - 2.5rem);
+    margin: 3.5rem auto;
+    padding: 2.5rem 1.5rem;
+
+    &__content {
+      max-width: 100%;
+
+      h2 {
+        max-width: 16ch;
+      }
+
+      p {
+        margin-bottom: 1.75rem;
+      }
+    }
+
+    &__button {
+      display: inline-flex;
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
+
+    &__icon {
+      right: -1.5rem;
+      bottom: -0.5rem;
+      width: 6rem;
+      opacity: 0.22;
+    }
   }
 }

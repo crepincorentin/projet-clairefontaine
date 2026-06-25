@@ -2,7 +2,7 @@
 
 .timeline-section {
   --timeline-axis: 50%;
-  padding: 3.25rem 2rem 5rem;
+  padding: clamp(3.25rem, 6vw, 4.5rem) 2rem clamp(4rem, 7vw, 5.5rem);
   color: white;
   background-color: $color-association;
 
@@ -139,7 +139,7 @@
 
 @media (max-width: 768px) {
   .timeline-section {
-    --timeline-axis: 0.55rem;
+    --timeline-axis: 0.625rem;
     padding: 3rem 1.25rem 4rem;
 
     &__title {
@@ -148,11 +148,16 @@
   }
 
   .timeline {
+    &::before {
+      top: 0.2rem;
+      bottom: 0.25rem;
+    }
+
     &__row,
     &__row--first,
     &__row--last {
       display: grid;
-      grid-template-columns: 2.25rem minmax(0, 1fr);
+      grid-template-columns: 2rem minmax(0, 1fr);
       min-height: 0;
       margin-bottom: 2.75rem;
     }
@@ -171,6 +176,10 @@
       max-width: none;
       padding: 0;
       text-align: left;
+
+      h3 {
+        font-size: 1.2rem;
+      }
     }
 
     &__image--first,
@@ -178,6 +187,7 @@
       grid-column: 2;
       width: 100%;
       height: auto;
+      aspect-ratio: 16 / 9;
       margin-top: 1.5rem;
     }
 
@@ -221,6 +231,47 @@
         .timeline__content {
           grid-row: 2;
         }
+      }
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .timeline-section {
+    padding: 3rem 1.25rem 3.5rem;
+
+    &__title {
+      margin-bottom: 2.25rem;
+    }
+  }
+
+  .timeline {
+    &__row,
+    &__row--first,
+    &__row--last {
+      grid-template-columns: 1.65rem minmax(0, 1fr);
+      margin-bottom: 2.25rem;
+    }
+
+    &__marker {
+      width: 0.9rem;
+      height: 0.9rem;
+    }
+
+    &__content {
+      p {
+        font-size: 0.92rem;
+      }
+    }
+
+    &__image--first,
+    &__image--last {
+      margin-top: 1.15rem;
+    }
+
+    &__event {
+      .timeline__content {
+        margin-bottom: 2.25rem;
       }
     }
   }

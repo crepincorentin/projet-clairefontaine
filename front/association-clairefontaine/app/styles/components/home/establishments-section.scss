@@ -2,7 +2,7 @@
 @import '../../utils/mixins';
 
 .establishments-section {
-  padding: 5rem 2rem;
+  padding: clamp(3.75rem, 6vw, 5rem) 2rem;
   text-align: center;
   background-color: #f8f9fa;
 
@@ -15,11 +15,53 @@
 
   &__grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 280px), 1fr));
+    gap: clamp(1.25rem, 3vw, 2rem);
     justify-content: center;
     max-width: 1300px;
     margin: 0 auto;
+  }
+}
+
+@media (max-width: 700px) {
+  .establishments-section {
+    padding: 3.75rem 1.25rem;
+
+    &__title {
+      margin-bottom: 2rem;
+    }
+  }
+
+  .establishment-card {
+    height: min(82vw, 22rem);
+
+    &__overlay {
+      background: linear-gradient(to top, rgba(2, 79, 109, 0.86) 0%, rgba(2, 79, 109, 0.18) 72%);
+    }
+
+    &__content {
+      padding: 1.25rem;
+      transform: none;
+    }
+
+    &__name {
+      font-size: 1.18rem;
+      line-height: 1.25;
+    }
+
+    &__location {
+      margin-bottom: 0.75rem;
+    }
+
+    &:hover {
+      .establishment-card__image {
+        transform: none;
+      }
+
+      .establishment-card__overlay {
+        background: linear-gradient(to top, rgba(2, 79, 109, 0.86) 0%, rgba(2, 79, 109, 0.18) 72%);
+      }
+    }
   }
 }
 

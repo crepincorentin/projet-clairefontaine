@@ -3,7 +3,7 @@
 .footer {
   background-color: $color-association;
   color: white;
-  padding: 4rem 2rem;
+  padding: clamp(3.5rem, 6vw, 4.5rem) 2rem;
 
   &__container {
     max-width: 1300px;
@@ -12,52 +12,148 @@
 
   &__establishments {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-    margin-bottom: 3rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr));
+    gap: clamp(1.5rem, 3vw, 2.25rem);
+    margin-bottom: clamp(2.5rem, 5vw, 3.5rem);
   }
 
   &__establishment {
+    min-width: 0;
+
     h3 {
+      max-width: 18rem;
       font-weight: bold;
       margin-bottom: 1rem;
+      line-height: 1.25;
     }
+
     p {
       margin-bottom: 0.5rem;
       display: flex;
-      align-items: center;
+      align-items: flex-start;
+      gap: 0.65rem;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 0.95rem;
+      line-height: 1.45;
     }
   }
 
   &__icon-phone {
-    margin-right: 1rem;
-    width: 1rem; // Augmenter la taille de l'icône
+    flex: 0 0 auto;
+    width: 1rem;
+    margin-top: 0.15rem;
   }
 
   &__bottom {
     border-top: 1px solid rgba(255, 255, 255, 0.2);
     padding-top: 2rem;
-    display: flex;
-    justify-content: space-between;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
     align-items: center;
+    gap: 2rem;
+  }
+
+  &__logo {
+    justify-self: start;
+
+    img {
+      display: block;
+      width: auto;
+      max-width: 9.5rem;
+      height: auto;
+    }
   }
 
   &__copyright {
+    justify-self: center;
     font-size: 0.9rem;
+    text-align: center;
   }
 
   &__socials {
     display: flex;
-    gap: 1.5rem;
+    justify-self: end;
+    gap: 0.85rem;
+
     a {
+      display: grid;
+      width: 2.5rem;
+      height: 2.5rem;
+      place-items: center;
+      border: 1px solid rgba(255, 255, 255, 0.25);
+      border-radius: 50%;
       color: white;
-      transition: color 0.3s ease;
+      transition: background-color 0.3s ease, border-color 0.3s ease;
+
       &:hover {
-        color: #ddd;
+        background-color: rgba(255, 255, 255, 0.12);
+        border-color: rgba(255, 255, 255, 0.45);
       }
+
       svg {
-        width: 24px;
-        height: 24px;
+        width: 1rem;
+        height: 1rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 900px) {
+  .footer {
+    &__establishments {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    &__bottom {
+      grid-template-columns: 1fr;
+      justify-items: center;
+      gap: 1.35rem;
+      text-align: center;
+    }
+
+    &__logo,
+    &__copyright,
+    &__socials {
+      justify-self: center;
+    }
+  }
+}
+
+@media (max-width: 560px) {
+  .footer {
+    padding: 3rem 1.25rem;
+
+    &__establishments {
+      grid-template-columns: 1fr;
+      gap: 0;
+      margin-bottom: 2.5rem;
+      border-top: 1px solid rgba(255, 255, 255, 0.18);
+    }
+
+    &__establishment {
+      padding: 1.25rem 0;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+
+      h3 {
+        max-width: none;
+        margin-bottom: 0.75rem;
+      }
+
+      p {
+        font-size: 0.92rem;
+      }
+    }
+
+    &__bottom {
+      padding-top: 1.75rem;
+    }
+
+    &__socials {
+      gap: 0.65rem;
+
+      a {
+        width: 2.35rem;
+        height: 2.35rem;
       }
     }
   }

@@ -3,6 +3,7 @@
 
 .page-hero {
   position: relative;
+  min-height: 30rem;
   height: 50vh;
   display: flex;
   align-items: center;
@@ -15,7 +16,7 @@
     max-width: 1300px;
     display: flex;
     justify-content: flex-end;
-    padding: 2rem 0rem;
+    padding: 2rem;
   }
   
   &__background {
@@ -35,15 +36,15 @@
     left: 0;
     width: 100%;
     height: 100%;
-    background: linear-gradient(to left, #0A436A, transparent);
+    background: linear-gradient(to left, rgba(10, 67, 106, 0.92), rgba(10, 67, 106, 0.1));
     z-index: -1;
   }
 
   &__content {
-    max-width: 40%;
+    max-width: min(100%, 34rem);
     
     h1 {
-      font-size: 3rem;
+      font-size: clamp(2.35rem, 4vw, 3rem);
       font-weight: bold;
       margin-bottom: 1rem;
       line-height: 1.2;
@@ -58,5 +59,53 @@
 
   &__button {
     @include button-style;
+  }
+}
+
+@media (max-width: 900px) {
+  .page-hero {
+    min-height: 34rem;
+    height: auto;
+    align-items: flex-end;
+
+    &::before {
+      background: linear-gradient(to top, rgba(10, 67, 106, 0.88), rgba(10, 67, 106, 0.16));
+    }
+
+    &__container {
+      justify-content: flex-start;
+      padding: 6rem 1.5rem 3rem;
+    }
+
+    &__content {
+      max-width: 38rem;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .page-hero {
+    min-height: 32rem;
+
+    &__container {
+      padding: 5.5rem 1.25rem 2.5rem;
+    }
+
+    &__content {
+      h1 {
+        max-width: 11ch;
+      }
+
+      p {
+        font-size: 1rem;
+        line-height: 1.55;
+      }
+    }
+
+    &__button {
+      width: 100%;
+      justify-content: center;
+      text-align: center;
+    }
   }
 }

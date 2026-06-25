@@ -41,7 +41,10 @@ export default function HomePage() {
         />
         <div className="hero__content">
           <h1>Prendre soin de chacun, chaque jour</h1>
-          <p>Un acteur à but non lucratif engagé pour le bien-être de vos proches à travers nos trois établissements médico-sociaux.</p>
+          <p>
+            Un acteur à but non lucratif engagé pour le bien-être de vos proches à travers nos
+            trois établissements médico-sociaux.
+          </p>
           <Link href="/en-savoir-plus" className="hero__button">
             En savoir plus
           </Link>
@@ -65,7 +68,7 @@ export default function HomePage() {
           <div className="about-section__content">
             <h2>Notre association</h2>
             <p>
-              Héritière d'une mission de soin née au XIIIème siècle, l&apos;
+              Héritière d&apos;une mission de soin née au XIIIème siècle, l&apos;
               <strong>Association Clairefontaine</strong> place la dignité des résidents au centre
               de ses priorités. Acteur à but non lucratif, nous accompagnons les aînés et leurs
               familles avec éthique et solidarité.
@@ -93,7 +96,7 @@ export default function HomePage() {
         <div className="stats-section__container">
           <div className="stats-section__title-container">
             <h2>
-              L'association Clairefontaine en quelques chiffres
+              L&apos;association Clairefontaine en quelques chiffres
             </h2>
           </div>
           <div className="stats-section__stats">
@@ -108,7 +111,7 @@ export default function HomePage() {
               <span className="number">30</span>
               <span className="label">
                 <FontAwesomeIcon icon={faAward} />
-                Années d'existence
+                Années d&apos;existence
               </span>
             </article>
             <article className="stats-section__stat">
