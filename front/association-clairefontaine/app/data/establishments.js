@@ -1,7 +1,5 @@
 import {
-  faBowlFood,
   faBuilding,
-  faCalendarDays,
   faHeadSideCough,
   faHouse,
   faPalette,
@@ -494,6 +492,32 @@ export const jeannejugan = {
           'De la visite des lieux aux rendez-vous médicaux, tout est mis en œuvre pour une mise en confiance. Un lieu de vie libre où les résidents reçoivent leurs proches et circulent à leur guise.',
       },
     ],
+  },
+  autonomyResidence: {
+    eyebrow: 'Résidence autonomie',
+    title: 'Résidence autonomie Montjoie',
+    description:
+      'Située à Dunkerque, la résidence autonomie Montjoie propose des appartements adaptés aux personnes âgées autonomes qui souhaitent conserver leur indépendance tout en profitant d’un environnement rassurant, convivial et proche des services de la Maison Jeanne Jugan.',
+    image: {
+      src: '/montjoie.jpeg',
+      alt: 'Résidence autonomie Montjoie à Dunkerque',
+      width: 700,
+      height: 520,
+    },
+    pricing: {
+      title: 'Grille tarifaire',
+      columns: {
+        label: 'Logement',
+        price: 'Tarif',
+      },
+      rows: [
+        { label: 'Appartement T1', price: 'Nous consulter' },
+        { label: 'Appartement T1 bis', price: 'Nous consulter' },
+        { label: 'Appartement T2', price: 'Nous consulter' },
+        { label: 'Charges et services', price: 'Selon situation' },
+      ],
+      note: 'Les tarifs peuvent varier selon le logement, les prestations choisies et les aides mobilisables. Notre équipe vous renseigne lors de la demande d’admission.',
+    },
   },
   pricing: {
     title: 'Tarifs - Aides financières',

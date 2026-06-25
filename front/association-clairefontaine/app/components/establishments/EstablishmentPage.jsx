@@ -19,6 +19,7 @@ export default function EstablishmentPage({ establishment }) {
     services,
     admission,
     solutions,
+    autonomyResidence,
     pricing,
     location,
   } = establishment;
@@ -221,6 +222,56 @@ export default function EstablishmentPage({ establishment }) {
                   height={pricing.image.height}
                   sizes="(max-width: 850px) 92vw, 480px"
                 />
+              </div>
+            </div>
+          </div>
+        </section>
+      )}
+
+      {autonomyResidence && (
+        <section
+          className="autonomy-residence-section"
+          aria-labelledby={`${slug}-autonomy-residence-title`}
+        >
+          <div className="autonomy-residence-section__container">
+            <div className="autonomy-residence-section__content">
+              <span className="autonomy-residence-section__eyebrow">
+                {autonomyResidence.eyebrow}
+              </span>
+              <h2 id={`${slug}-autonomy-residence-title`}>{autonomyResidence.title}</h2>
+              <p>{autonomyResidence.description}</p>
+            </div>
+
+            <div className="autonomy-residence-section__image">
+              <Image
+                src={autonomyResidence.image.src}
+                alt={autonomyResidence.image.alt}
+                width={autonomyResidence.image.width}
+                height={autonomyResidence.image.height}
+                sizes="(max-width: 850px) 92vw, 500px"
+              />
+            </div>
+
+            <div className="autonomy-residence-section__pricing">
+              <h3>{autonomyResidence.pricing.title}</h3>
+              <div className="autonomy-residence-section__table-card">
+                <table>
+                  <thead>
+                    <tr>
+                      <th scope="col">{autonomyResidence.pricing.columns.label}</th>
+                      <th scope="col">{autonomyResidence.pricing.columns.price}</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {autonomyResidence.pricing.rows.map((row) => (
+                      <tr key={row.label}>
+                        <th scope="row">{row.label}</th>
+                        <td>{row.price}</td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
+                <p>{autonomyResidence.pricing.note}</p>
               </div>
             </div>
           </div>
