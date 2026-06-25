@@ -18,17 +18,17 @@ import '../styles/components/home/cta-section.scss';
 const pillars = [
   {
     title: 'Amour',
-    description: 'Accompagner avec cordialité, disponibilité et écoute.',
+    description: 'Accompagner avec bienveillance et écoute',
     icon: faHeart,
   },
   {
     title: 'Respect',
-    description: 'Esprit de tolérance totale vis-à-vis du vécu, des choix et des croyances.',
+    description: 'Accueillir chacun dans sa singularité',
     icon: faHandshake,
   },
   {
     title: 'Dignité',
-    description: "Garantir la considération et l'intimité de la personne, malgré la dépendance.",
+    description: "Préserver l'identité et l'autonomie de la personne",
     icon: faUserShield,
   },
   {
@@ -43,7 +43,7 @@ export default function QuiSommesNousPage() {
     <main>
       <section className="page-hero">
         <Image
-          src="/about-top.png"
+          src="/illustration_personnes.jpg"
           alt="Huit siècles de dévouement au service de l'humain"
           fill
           className="page-hero__background"
@@ -65,19 +65,37 @@ export default function QuiSommesNousPage() {
 
       <section className="history-section">
         <div className="history-section__container">
-          <h2 className="history-section__title">L&apos;Humain au cœur de notre histoire</h2>
+          <h2 className="history-section__title">Bienvenue à l&apos;Association Clairefontaine</h2>
           <div className="history-section__content">
-            <p>
-              Héritière d&apos;une mission de charité débutée au <strong>XIIIème siècle</strong> par
-              les Sœurs de Notre Dame du Fief, l&apos;Association Clairefontaine perpétue
-              aujourd&apos;hui cet engagement auprès des plus fragiles.
+            <p className="history-section__lead">
+              Depuis plus de <strong>800 ans</strong>, une même vocation nous anime : prendre
+              soin des personnes les plus fragiles avec respect, bienveillance et humanité.
             </p>
-            <p>
-              Portés par des équipes laïques mais animés par les mêmes valeurs originelles, nous
-              gérons des lieux de vie où l&apos;expérience du grand âge se conjugue avec{' '}
-              <strong>humanité, dignité et respect</strong>. Notre priorité absolue : mettre chaque
-              résident au centre de nos attentions pour lui permettre de rester « debout », acteur
-              de sa propre vie au sein d&apos;une communauté familiale et solidaire.
+
+            <div className="history-section__cards">
+              <article className="history-section__card">
+                <span>Notre héritage</span>
+                <p>
+                  Héritière de l&apos;œuvre des Sœurs de Notre-Dame du Fief, l&apos;Association
+                  Clairefontaine accompagne aujourd&apos;hui les personnes âgées au sein de nos
+                  trois établissements : Saint-Augustin à Bergues, Clairefontaine à Hazebrouck
+                  et Jeanne Jugan à Dunkerque.
+                </p>
+              </article>
+
+              <article className="history-section__card">
+                <span>Notre engagement</span>
+                <p>
+                  Parce que chaque personne est unique, nous plaçons la dignité, l&apos;écoute et
+                  le lien humain au cœur de notre engagement quotidien afin d&apos;offrir à chacun
+                  un accompagnement personnalisé dans un environnement chaleureux et sécurisé.
+                </p>
+              </article>
+            </div>
+
+            <p className="history-section__mission">
+              Prendre soin, accompagner, respecter : telle est notre mission depuis plus de huit
+              siècles.
             </p>
           </div>
         </div>
@@ -188,27 +206,46 @@ export default function QuiSommesNousPage() {
 
       <section className="management-section" aria-labelledby="management-title">
         <div className="management-section__container">
-          <div className="management-section__content">
-            <h2 id="management-title">
-              <span>Une gestion désintéressée</span>
-              <span>pour un bien-être garanti.</span>
-            </h2>
-            <p>
-              Sous l&apos;impulsion de notre Conseil d&apos;Administration et de notre Direction,
-              nous mettons notre expérience du grand âge au service de votre quiétude. La
-              reconnaissance des droits et devoirs de chacun est le socle de la sérénité et du
-              bien-être que nous vous garantissons en collectivité.
-            </p>
+          <div className="management-section__visual">
+            <div className="management-section__image">
+              <Image
+                src="/directrice.jpeg"
+                alt="Un moment d'échange entre une résidente et une accompagnante"
+                width={522}
+                height={546}
+                sizes="(max-width: 900px) 100vw, 42vw"
+              />
+            </div>
+            <div className="management-section__badge">
+              <span>Accompagner</span>
+              <strong>avec attention</strong>
+            </div>
           </div>
 
-          <div className="management-section__image">
-            <Image
-              src="/about-bottom.png"
-              alt="Un moment d'échange entre une résidente et une accompagnante"
-              width={522}
-              height={546}
-              sizes="(max-width: 700px) 100vw, 40vw"
-            />
+          <div className="management-section__content">
+            <span className="management-section__eyebrow">Direction générale</span>
+            <h2 id="management-title">
+              Le mot de la Directrice
+            </h2>
+            <blockquote>
+              <p>
+                À l&apos;Association Clairefontaine, nous mettons toute notre expérience et notre
+                engagement au service des personnes âgées que nous accompagnons.
+              </p>
+              <p>
+                Guidés par nos valeurs de respect, de dignité, de bienveillance et de
+                solidarité, nous veillons chaque jour à offrir un cadre de vie chaleureux,
+                sécurisant et attentif aux besoins de chacun.
+              </p>
+              <p>
+                Parce que chaque personne est unique, nous plaçons l&apos;écoute, le respect des
+                droits et la qualité de l&apos;accompagnement au cœur de notre mission.
+              </p>
+            </blockquote>
+            <div className="management-section__signature">
+              <span>La Directrice</span>
+              <strong>Association Clairefontaine</strong>
+            </div>
           </div>
         </div>
       </section>

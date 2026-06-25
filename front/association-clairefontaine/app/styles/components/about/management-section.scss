@@ -1,47 +1,143 @@
 @import '../../utils/palette';
 
 .management-section {
-  padding: 3rem 2rem;
-  color: white;
-  background-color: $color-association;
+  padding: clamp(4.5rem, 7vw, 7rem) 2rem;
+  color: $text-dark;
+  background:
+    linear-gradient(90deg, rgba(2, 135, 183, 0.08) 0%, rgba(2, 135, 183, 0) 48%),
+    #f7fbfd;
 
   &__container {
     display: grid;
-    grid-template-columns: minmax(0, 1.2fr) minmax(25rem, 1fr);
+    grid-template-columns: minmax(18rem, 0.82fr) minmax(0, 1fr);
     align-items: center;
-    gap: clamp(4rem, 6.5vw, 8rem);
+    gap: clamp(3rem, 6vw, 6.5rem);
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
   }
 
-  &__content {
-    h2 {
-      margin-bottom: clamp(4rem, 6vw, 7rem);
-      font-size: clamp(2rem, 3vw, 2.75rem);
-      font-weight: 700;
-      line-height: 1.18;
-      letter-spacing: -0.02em;
-
-      span {
-        display: block;
-      }
-    }
-
-    p {
-      max-width: 54rem;
-      font-size: clamp(1.05rem, 1.15vw, 1.35rem);
-      line-height: 1.75;
-    }
+  &__visual {
+    position: relative;
+    width: min(100%, 31rem);
   }
 
   &__image {
-    width: 100%;
+    position: relative;
+    overflow: hidden;
+    aspect-ratio: 0.9;
+    border-radius: 0.5rem;
+    box-shadow: 0 1.5rem 3rem rgba(2, 80, 109, 0.18);
+
+    &::after {
+      position: absolute;
+      inset: 0;
+      content: '';
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      pointer-events: none;
+    }
 
     img {
       display: block;
       width: 100%;
-      height: auto;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &__badge {
+    position: absolute;
+    right: -2rem;
+    bottom: 2rem;
+    display: grid;
+    min-width: 12.5rem;
+    gap: 0.2rem;
+    padding: 1.1rem 1.25rem;
+    border-left: 0.35rem solid $color-jeanne-jugan;
+    background-color: white;
+    box-shadow: 0 1rem 2rem rgba(2, 80, 109, 0.14);
+
+    span,
+    strong {
+      line-height: 1.2;
+    }
+
+    span {
+      color: #5f6f76;
+      font-size: 0.86rem;
+    }
+
+    strong {
+      color: $color-augustin;
+      font-size: 1.08rem;
+    }
+  }
+
+  &__content {
+    padding: clamp(2rem, 4vw, 3.5rem);
+    border-left: 4px solid $color-association;
+    background-color: white;
+    box-shadow: 0 1.25rem 3rem rgba(2, 80, 109, 0.08);
+
+    &::before {
+      display: block;
+      margin-bottom: 1.4rem;
+      color: rgba(2, 135, 183, 0.18);
+      content: '“';
+      font-family: Georgia, serif;
+      font-size: 6rem;
+      line-height: 0.6;
+    }
+
+    blockquote {
+      margin: 0;
+    }
+
+    h2 {
+      margin-bottom: 1.8rem;
+      color: $color-association;
+      font-size: clamp(2rem, 3vw, 2.7rem);
+      font-weight: 700;
+      line-height: 1.12;
+    }
+
+    p {
+      max-width: 48rem;
+      color: #3f4b52;
+      font-size: clamp(1rem, 1.05vw, 1.14rem);
+      line-height: 1.72;
+
+      & + p {
+        margin-top: 1.1rem;
+      }
+    }
+  }
+
+  &__eyebrow {
+    display: inline-block;
+    margin-bottom: 0.85rem;
+    color: $color-augustin;
+    font-size: 0.82rem;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+  }
+
+  &__signature {
+    display: grid;
+    gap: 0.15rem;
+    margin-top: 2rem;
+    padding-top: 1.35rem;
+    border-top: 1px solid rgba(2, 80, 109, 0.14);
+
+    span {
+      color: #6a777d;
+      font-size: 0.92rem;
+    }
+
+    strong {
+      color: $color-augustin;
+      font-size: 1.05rem;
     }
   }
 }
@@ -49,23 +145,11 @@
 @media (max-width: 1000px) {
   .management-section {
     &__container {
-      grid-template-columns: minmax(0, 1fr) minmax(18rem, 0.75fr);
+      grid-template-columns: minmax(17rem, 0.75fr) minmax(0, 1fr);
       gap: 3rem;
     }
 
     &__content {
-      h2 {
-        margin-bottom: 3rem;
-
-        span {
-          display: inline;
-
-          & + span::before {
-            content: ' ';
-          }
-        }
-      }
-
       p {
         font-size: 1rem;
         line-height: 1.6;
@@ -76,20 +160,47 @@
 
 @media (max-width: 700px) {
   .management-section {
-    padding: 3.5rem 1.25rem 0;
+    padding: 3.75rem 1.25rem;
 
     &__container {
       grid-template-columns: 1fr;
-      gap: 3rem;
+      gap: 2.5rem;
     }
 
-    &__content h2 {
-      margin-bottom: 2rem;
-    }
-
-    &__image {
-      max-width: 32rem;
+    &__visual {
+      width: 100%;
+      max-width: 28rem;
       margin: 0 auto;
+    }
+
+    &__badge {
+      right: 1rem;
+      bottom: 1rem;
+      min-width: 11rem;
+    }
+
+    &__content {
+      padding: 2rem 1.35rem;
+
+      &::before {
+        margin-bottom: 1rem;
+        font-size: 4.75rem;
+      }
+
+      h2 {
+        margin-bottom: 1.4rem;
+      }
+    }
+  }
+}
+
+@media (max-width: 420px) {
+  .management-section {
+    &__badge {
+      position: static;
+      min-width: 0;
+      margin: 0 auto;
+      border-left-width: 0.28rem;
     }
   }
 }

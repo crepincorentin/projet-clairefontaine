@@ -10,6 +10,7 @@
     font-size: clamp(2rem, 5vw, 2.5rem);
     color: $color-association;
     margin-bottom: 3rem;
+    font-weight: bold;
   }
 
   &__container {
@@ -97,8 +98,13 @@
     }
 
     p {
+      margin: 0;
       font-size: 1rem;
       line-height: 1.6;
+    }
+
+    p + p {
+      margin-top: 1rem;
     }
   }
 }

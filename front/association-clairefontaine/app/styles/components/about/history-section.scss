@@ -1,34 +1,117 @@
 @import '../../utils/palette';
 
 .history-section {
-  padding: 5rem 2rem;
-  background-color: white;
   display: flex;
   justify-content: center;
+  padding: clamp(4.5rem, 7vw, 6.5rem) 2rem;
+  background:
+    linear-gradient(180deg, #ffffff 0%, #f6fbfd 100%);
 
   &__container {
-    max-width: 1300px;
     width: 100%;
+    max-width: 1180px;
   }
 
   &__title {
-    text-align: center;
-    font-size: 2.5rem;
-    font-weight: bold;
+    margin-bottom: 2.25rem;
     color: $color-association;
-    margin-bottom: 3rem;
+    text-align: center;
+    font-size: clamp(2rem, 3vw, 2.7rem);
+    font-weight: bold;
+    line-height: 1.15;
   }
 
   &__content {
+    display: grid;
+    gap: 2rem;
+
     p {
-      font-size: 1.1rem;
-      line-height: 1.8;
-      margin-bottom: 2rem;
       color: #333;
+      font-size: 1.05rem;
+      line-height: 1.75;
 
       strong {
         font-weight: bold;
       }
+    }
+
+    .history-section__lead {
+      font-size: clamp(1.25rem, 2vw, 1.65rem);
+      line-height: 1.45;
+    }
+
+    .history-section__mission {
+      color: $color-augustin;
+    }
+  }
+
+  &__lead {
+    max-width: 58rem;
+    margin: 0 auto;
+    color: $text-dark;
+    text-align: center;
+    font-weight: 600;
+
+    strong {
+      color: $color-association;
+      font-size: 1.18em;
+    }
+  }
+
+  &__cards {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem;
+    margin-top: 0.75rem;
+  }
+
+  &__card {
+    padding: clamp(1.5rem, 3vw, 2rem);
+    border: 1px solid rgba(2, 135, 183, 0.14);
+    border-top: 0.35rem solid $color-association;
+    background-color: white;
+    box-shadow: 0 1rem 2.4rem rgba(2, 80, 109, 0.08);
+
+    span {
+      display: block;
+      margin-bottom: 0.85rem;
+      color: $color-augustin;
+      font-size: 0.82rem;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    p {
+      margin: 0;
+    }
+  }
+
+  &__mission {
+    max-width: 48rem;
+    margin: 0 auto;
+    padding: 1.2rem 1.5rem;
+    border-left: 4px solid $color-jeanne-jugan;
+    background-color: rgba(197, 147, 0, 0.08);
+    text-align: center;
+    font-weight: 700;
+  }
+}
+
+@media (max-width: 760px) {
+  .history-section {
+    padding: 3.75rem 1.25rem;
+
+    &__title {
+      margin-bottom: 1.75rem;
+    }
+
+    &__cards {
+      grid-template-columns: 1fr;
+    }
+
+    &__mission {
+      text-align: left;
     }
   }
 }

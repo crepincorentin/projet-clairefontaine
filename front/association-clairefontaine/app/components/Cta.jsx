@@ -7,7 +7,7 @@ export default function Cta() {
       <div className="cta-section__content">
         <h2>Vous souhaitez plus d&apos;informations ?</h2>
         <p>
-          Lorem ipsum dolor sit amet consectetur. Augue non malesuada placerat faucibus nam purus sem. Urna pulvinar porttitor dignissim congue pellentesque ac hac.
+          Nous sommes à votre écoute pour répondre à vos questions et vous accompagner dans vos démarches.
         </p>
         <Link href="/contact" className="cta-section__button">
           Nous contacter

@@ -22,7 +22,7 @@ import Cta from './components/Cta';
 const establishments = [
   { name: 'Maison de famille Saint-Augustin', location: 'Bergues', image: '/saint-augustin.jpeg', link: '/saint-augustin' },
   { name: 'Maison de famille Clairefontaine', location: 'Hazebrouck', image: '/clairefontaine.jpeg', link: '/clairefontaine' },
-  { name: 'Maison de famille Jeanne Jugan', location: 'Dunkerque', image: '/jeanne-jugan.jpeg', link: '/jeanne-jugan' },
+  { name: 'Maison de famille Jeanne Jugan', location: 'Dunkerque', image: '/jeannejugan.jpeg', link: '/jeanne-jugan' },
   { name: 'Résidence autonomie Montjoie', location: 'Dunkerque', image: '/montjoie.jpeg', link: '/montjoie' },
 ];
 
@@ -31,8 +31,8 @@ export default function HomePage() {
     <main>
       <section className="hero">
         <Image
-          src="/home-image.jpg"
-          alt="L'humain au coeur du grand âge"
+          src="/clairefontaine_exterieur.jpeg"
+          alt="Prendre soin de chacun, chaque jour"
           fill
           objectFit="cover"
           className="hero__background"
@@ -40,7 +40,7 @@ export default function HomePage() {
           quality={100}
         />
         <div className="hero__content">
-          <h1>L'humain au cœur du grand âge</h1>
+          <h1>Prendre soin de chacun, chaque jour</h1>
           <p>Un acteur à but non lucratif engagé pour le bien-être de vos proches à travers nos trois établissements médico-sociaux.</p>
           <Link href="/en-savoir-plus" className="hero__button">
             En savoir plus
@@ -54,7 +54,7 @@ export default function HomePage() {
             <div className="about-section__decoration" aria-hidden="true" />
             <div className="about-section__image">
               <Image
-                src="/association.png"
+                src="/mains.jpeg"
                 alt="Notre association"
                 width={500}
                 height={500}
@@ -65,7 +65,7 @@ export default function HomePage() {
           <div className="about-section__content">
             <h2>Notre association</h2>
             <p>
-              Héritière d&apos;une mission de soin née au XIIIème siècle, l&apos;
+              Héritière d'une mission de soin née au XIIIème siècle, l&apos;
               <strong>Association Clairefontaine</strong> place la dignité des résidents au centre
               de ses priorités. Acteur à but non lucratif, nous accompagnons les aînés et leurs
               familles avec éthique et solidarité.
@@ -98,7 +98,7 @@ export default function HomePage() {
           </div>
           <div className="stats-section__stats">
             <article className="stats-section__stat">
-              <span className="number">500</span>
+              <span className="number">217</span>
               <span className="label">
                 <FontAwesomeIcon icon={faUser} />
                 Résidents

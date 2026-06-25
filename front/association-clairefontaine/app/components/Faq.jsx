@@ -7,23 +7,23 @@ import { faChevronRight } from '@fortawesome/free-solid-svg-icons';
 const faqData = [
   {
     question: "Comment inscrire un proche dans l'un de nos établissements ?",
-    answer: "Pour inscrire un proche, vous devez remplir un dossier d'admission disponible sur la page de chaque établissement ou en contactant directement le secrétariat. Une visite de pré-admission est ensuite organisée.",
+    answer: "Pour inscrire un proche, il vous suffit de compléter le formulaire CERFA n°11126*15 et de le déposer auprès de nos secrétariats.\n Vous pouvez également réaliser votre demande en ligne via la plateforme ViaTrajectoire. Celle-ci sera automatiquement transmise à notre établissement.\n Dès réception de votre dossier, votre demande est étudiée puis inscrite sur notre liste d’attente.\n Afin de mieux comprendre votre situation et vos besoins, nous vous invitons à nous contacter par téléphone. Cet échange nous permettra de vous accompagner au mieux dans vos démarches et de répondre à vos questions.",
   },
   {
     question: "Quelles sont les valeurs de l'Association Clairefontaine ?",
-    answer: "Nous cultivons une approche centrée sur le bien-être du résident et la solidarité avec les familles. Travailler chez nous, c'est rejoindre un acteur à but non lucratif qui valorise l'éthique et le respect de la personne.",
+    answer: "Nos valeurs se traduisent chaque jour par une attention sincère portée à chaque personne, dans le respect de son histoire, de ses choix et de sa dignité",
   },
   {
-    question: "Les résidents peuvent-ils personnaliser leur chambre ?",
-    answer: "Oui, les résidents sont encouragés à personnaliser leur chambre avec des petits meubles, des cadres photos et des objets personnels pour se sentir comme chez eux, dans le respect des règles de sécurité.",
+    question: "Les résidents peuvent-ils aménager leur lieu de vie ?",
+    answer: "Nos établissements sont avant tout des lieux de vie. C’est pourquoi nous encourageons chaque résident à personnaliser sa chambre afin de s’y sentir pleinement chez lui.\n Selon la configuration de la chambre, les résidents peuvent aménager leur espace avec leurs propres meubles et objets personnels, dans le respect des règles de sécurité et de confort.\n Pour vous accompagner dans cette démarche, nous mettons à votre disposition les recommandations élaborées en partenariat avec L’Esprève, afin de garantir un aménagement à la fois chaleureux, fonctionnel et sécurisé.",
   },
   {
     question: "Où consulter les tarifs de nos EHPAD ?",
-    answer: "Les tarifs sont disponibles sur les pages dédiées à chaque établissement sur notre site. Vous pouvez également les obtenir en contactant directement l'accueil de l'établissement concerné.",
+    answer: "Nos tarifs sont consultables directement sur notre site. Vous pouvez également nous contacter par téléphone pour obtenir plus d’informations.",
   },
   {
-    question: "Comment postuler à une offre d'emploi au sein de l'association ?",
-    answer: "Vous pouvez consulter nos offres d'emploi sur la page 'Carrières' de notre site web et postuler en ligne. Les candidatures spontanées sont également les bienvenues via le formulaire de contact.",
+    question: "Comment postuler à un des établissements de l'association ?",
+    answer: "Pour postuler, vous pouvez nous transmettre votre candidature directement depuis notre site ou nous contacter par téléphone. Les candidatures spontanées sont également les bienvenues.",
   },
 ];
 
@@ -53,7 +53,15 @@ export default function Faq() {
           {activeIndex !== null && (
             <>
               <h3>{faqData[activeIndex].question}</h3>
-              <p>{faqData[activeIndex].answer}</p>
+              <div className="faq-section__answer-content">
+                {faqData[activeIndex].answer
+                  .split('\n')
+                  .map((paragraph) => paragraph.trim())
+                  .filter(Boolean)
+                  .map((paragraph, index) => (
+                    <p key={index}>{paragraph}</p>
+                  ))}
+              </div>
             </>
           )}
         </div>
