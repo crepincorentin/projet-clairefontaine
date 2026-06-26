@@ -1,126 +1,104 @@
-@import '../styles/utils/palette';
-
 .login-page {
-  display: grid;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   min-height: 100vh;
-  padding: 2rem;
-  place-items: center;
-  background:
-    radial-gradient(circle at 15% 15%, rgba(116, 200, 235, 0.28), transparent 28rem),
-    linear-gradient(135deg, #f7fbfd 0%, #eef6f8 100%);
+  background-color: #f0f2f5;
+  padding: 1rem;
 }
 
 .login-card {
-  width: min(100%, 28rem);
-  padding: clamp(2rem, 5vw, 3rem);
-  border: 1px solid rgba(2, 135, 183, 0.12);
-  border-radius: 0.75rem;
-  background-color: white;
-  box-shadow: 0 1.5rem 4rem rgba(2, 80, 109, 0.12);
+  width: 100%;
+  max-width: 420px;
+  background: #ffffff;
+  padding: 2.5rem 3rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.1);
+  text-align: center;
 
   &__brand {
-    display: grid;
-    gap: 0.2rem;
     margin-bottom: 2rem;
-    color: $color-association;
-
     span {
-      font-size: 0.8rem;
-      font-weight: 800;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
+      display: block;
+      font-size: 0.9rem;
+      color: #6b7280;
     }
-
     strong {
       font-size: 1.5rem;
-      line-height: 1;
+      font-weight: 700;
+      color: #02506d;
     }
   }
 
-  h1 {
-    margin-bottom: 0.75rem;
-    color: $text-dark;
-    font-size: clamp(2rem, 5vw, 2.4rem);
-    font-weight: 800;
-    line-height: 1.1;
+  #admin-login-title {
+    font-size: 1.75rem;
+    font-weight: 600;
+    color: #111827;
+    margin: 0 0 0.5rem 0;
   }
 
   &__intro {
-    margin-bottom: 2rem;
-    color: #64707a;
-    line-height: 1.55;
+    color: #4b5563;
+    margin-bottom: 2.5rem;
+    font-size: 1rem;
   }
 }
 
 .login-form {
-  display: grid;
-  gap: 1rem;
+  text-align: left;
 
   &__field {
-    display: grid;
-    gap: 0.45rem;
+    margin-bottom: 1.5rem;
 
     label {
-      color: #334155;
-      font-size: 0.9rem;
-      font-weight: 700;
+      display: block;
+      font-weight: 500;
+      color: #374151;
+      margin-bottom: 0.5rem;
     }
 
     input {
       width: 100%;
-      min-height: 3.25rem;
-      padding: 0.85rem 1rem;
-      border: 1px solid #d7e1e6;
-      border-radius: 0.5rem;
-      background-color: #fff;
-      color: $text-dark;
-      font: inherit;
-      outline: none;
+      padding: 0.8rem 1rem;
+      border: 1px solid #d1d5db;
+      border-radius: 8px;
+      font-size: 1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
 
       &:focus {
-        border-color: $color-association;
-        box-shadow: 0 0 0 3px rgba(2, 135, 183, 0.14);
+        outline: none;
+        border-color: #0287b7;
+        box-shadow: 0 0 0 3px rgba(2, 135, 183, 0.2);
       }
     }
   }
 
   &__error {
-    padding: 0.8rem 1rem;
-    border: 1px solid rgba(185, 28, 28, 0.2);
-    border-radius: 0.5rem;
-    background-color: #fef2f2;
     color: #b91c1c;
+    margin-bottom: 1.5rem;
+    text-align: center;
     font-size: 0.9rem;
   }
 
   &__submit {
-    min-height: 3.25rem;
-    margin-top: 0.35rem;
-    border: 0;
-    border-radius: 0.5rem;
-    background-color: $color-association;
-    color: white;
-    font: inherit;
-    font-weight: 800;
+    width: 100%;
+    padding: 0.9rem;
+    border: none;
+    border-radius: 8px;
+    background-color: #02506d;
+    color: #ffffff;
+    font-size: 1rem;
+    font-weight: 600;
     cursor: pointer;
+    transition: background-color 0.2s;
 
     &:hover:not(:disabled) {
-      background-color: $color-augustin;
+      background-color: #026a8f;
     }
 
     &:disabled {
+      background-color: #9ca3af;
       cursor: not-allowed;
-      opacity: 0.6;
     }
-  }
-}
-
-@media (max-width: 480px) {
-  .login-page {
-    padding: 1rem;
-  }
-
-  .login-card {
-    padding: 1.5rem;
   }
 }
