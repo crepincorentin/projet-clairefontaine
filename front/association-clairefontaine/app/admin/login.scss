@@ -1,0 +1,126 @@
+@import '../styles/utils/palette';
+
+.login-page {
+  display: grid;
+  min-height: 100vh;
+  padding: 2rem;
+  place-items: center;
+  background:
+    radial-gradient(circle at 15% 15%, rgba(116, 200, 235, 0.28), transparent 28rem),
+    linear-gradient(135deg, #f7fbfd 0%, #eef6f8 100%);
+}
+
+.login-card {
+  width: min(100%, 28rem);
+  padding: clamp(2rem, 5vw, 3rem);
+  border: 1px solid rgba(2, 135, 183, 0.12);
+  border-radius: 0.75rem;
+  background-color: white;
+  box-shadow: 0 1.5rem 4rem rgba(2, 80, 109, 0.12);
+
+  &__brand {
+    display: grid;
+    gap: 0.2rem;
+    margin-bottom: 2rem;
+    color: $color-association;
+
+    span {
+      font-size: 0.8rem;
+      font-weight: 800;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+    strong {
+      font-size: 1.5rem;
+      line-height: 1;
+    }
+  }
+
+  h1 {
+    margin-bottom: 0.75rem;
+    color: $text-dark;
+    font-size: clamp(2rem, 5vw, 2.4rem);
+    font-weight: 800;
+    line-height: 1.1;
+  }
+
+  &__intro {
+    margin-bottom: 2rem;
+    color: #64707a;
+    line-height: 1.55;
+  }
+}
+
+.login-form {
+  display: grid;
+  gap: 1rem;
+
+  &__field {
+    display: grid;
+    gap: 0.45rem;
+
+    label {
+      color: #334155;
+      font-size: 0.9rem;
+      font-weight: 700;
+    }
+
+    input {
+      width: 100%;
+      min-height: 3.25rem;
+      padding: 0.85rem 1rem;
+      border: 1px solid #d7e1e6;
+      border-radius: 0.5rem;
+      background-color: #fff;
+      color: $text-dark;
+      font: inherit;
+      outline: none;
+
+      &:focus {
+        border-color: $color-association;
+        box-shadow: 0 0 0 3px rgba(2, 135, 183, 0.14);
+      }
+    }
+  }
+
+  &__error {
+    padding: 0.8rem 1rem;
+    border: 1px solid rgba(185, 28, 28, 0.2);
+    border-radius: 0.5rem;
+    background-color: #fef2f2;
+    color: #b91c1c;
+    font-size: 0.9rem;
+  }
+
+  &__submit {
+    min-height: 3.25rem;
+    margin-top: 0.35rem;
+    border: 0;
+    border-radius: 0.5rem;
+    background-color: $color-association;
+    color: white;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+
+    &:hover:not(:disabled) {
+      background-color: $color-augustin;
+    }
+
+    &:disabled {
+      cursor: not-allowed;
+      opacity: 0.6;
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .login-page {
+    padding: 1rem;
+  }
+
+  .login-card {
+    padding: 1.5rem;
+  }
+}
