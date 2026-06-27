@@ -243,7 +243,7 @@ export default function QuiSommesNousPage() {
               </p>
             </blockquote>
             <div className="management-section__signature">
-              <span>La Directrice</span>
+              <span>Amandine Massemin</span>
               <strong>Association Clairefontaine</strong>
             </div>
           </div>

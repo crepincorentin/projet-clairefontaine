@@ -36,7 +36,7 @@ export const saintAugustin = {
     description:
       'Héritière de l\'engagement des Sœurs de Notre-Dame du Fief, la Maison Saint-Augustin accueille des personnes âgées de plus de 60 ans, autonomes ou en perte d\'autonomie.\n Notre mission est d\'offrir à chacun un accompagnement personnalisé, fondé sur le respect, l\'écoute et la bienveillance, afin de préserver son autonomie, sa dignité et sa qualité de vie au quotidien.',
     image: {
-      src: '/association.png',
+      src: '/saintaugustin-lieudevie.jpeg',
       alt: 'Une résidente participant à une activité accompagnée',
       width: 552,
       height: 600,
@@ -116,7 +116,7 @@ export const saintAugustin = {
     description:
       "Découvre nos 4 solutions d'accueil à Bergues, du séjour permanent à l'unité Alzheimer. Un cadre bienveillant incluant un accueil de jour et des solutions de répit pour les aidants.",
     image: {
-      src: '/about-bottom.png',
+      src: '/saintaugustin-materiel.jpeg',
       alt: 'Des résidents partageant un moment convivial',
       width: 522,
       height: 546,
@@ -162,7 +162,7 @@ export const saintAugustin = {
         "Ces tarifs ne tiennent pas compte des aides financières dont vous pouvez bénéficier, telles que l’APA (Allocation Personnalisée d’Autonomie), l’APL ou l’ASH. Nos équipes administratives vous accompagnent dans le montage de vos dossiers.",
     },
     image: {
-      src: '/association.png',
+      src: '/salon-coiffure.jpeg',
       alt: 'Une accompagnante auprès d’une résidente',
       width: 552,
       height: 600,
