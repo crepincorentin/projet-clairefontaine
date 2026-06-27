@@ -1,6 +1,5 @@
 // src/app/layout.jsx
-import Navbar from "./components/Navbar";
-import Footer from "./components/Footer";
+import SiteChrome from './components/SiteChrome';
 import "./globals.scss"; // Ton SASS global
 
 export const metadata = {
@@ -12,13 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr">
       <body style={{ display: 'flex', flexDirection: 'column', minHeight: '100vh' }}>
-        <Navbar />
-        
-        <main style={{ flex: 1 }}>
-          {children}
-        </main>
-        
-        <Footer />
+        <SiteChrome>{children}</SiteChrome>
       </body>
     </html>
   );
