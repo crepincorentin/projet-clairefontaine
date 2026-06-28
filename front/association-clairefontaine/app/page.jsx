@@ -22,7 +22,7 @@ const establishments = [
   { name: 'Maison de famille Saint-Augustin', location: 'Bergues', image: '/saint-augustin.jpeg', link: '/saint-augustin' },
   { name: 'Maison de famille Clairefontaine', location: 'Hazebrouck', image: '/clairefontaine.jpeg', link: '/clairefontaine' },
   { name: 'Maison de famille Jeanne Jugan', location: 'Dunkerque', image: '/jeannejugan.jpeg', link: '/jeanne-jugan' },
-  { name: 'Résidence autonomie Montjoie', location: 'Dunkerque', image: '/montjoie.jpeg', link: '/montjoie' },
+  { name: 'Résidence autonomie Montjoie', location: 'Dunkerque', image: '/montjoie.jpeg', link: '/jeanne-jugan#residence-montjoie' },
 ];
 
 export default function HomePage() {
@@ -44,7 +44,7 @@ export default function HomePage() {
             Un acteur à but non lucratif engagé pour le bien-être de vos proches à travers nos
             trois établissements médico-sociaux.
           </p>
-          <Link href="/en-savoir-plus" className="hero__button">
+          <Link href="/qui-sommes-nous" className="hero__button">
             En savoir plus
           </Link>
         </div>

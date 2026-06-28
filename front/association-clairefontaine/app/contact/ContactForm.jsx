@@ -56,17 +56,18 @@ export default function ContactForm() {
           message: formData.get('message'),
         }),
       });
+      const data = await response.json().catch(() => ({}));
 
       if (!response.ok) {
-        throw new Error('contact');
+        throw new Error(data.error || 'Impossible d’envoyer votre message pour le moment.');
       }
 
       form.reset();
       setStatus('success');
       setFeedback('Votre message a bien été envoyé. Nous reviendrons vers vous rapidement.');
-    } catch {
+    } catch (submissionError) {
       setStatus('error');
-      setFeedback('Impossible d’envoyer votre message pour le moment.');
+      setFeedback(submissionError.message);
     }
   };
 
