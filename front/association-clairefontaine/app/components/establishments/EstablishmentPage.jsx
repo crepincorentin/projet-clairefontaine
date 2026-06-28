@@ -230,6 +230,7 @@ export default function EstablishmentPage({ establishment }) {
 
       {autonomyResidence && (
         <section
+          id="residence-montjoie"
           className="autonomy-residence-section"
           aria-labelledby={`${slug}-autonomy-residence-title`}
         >

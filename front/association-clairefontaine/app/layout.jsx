@@ -1,4 +1,3 @@
-// src/app/layout.jsx
 import SiteChrome from './components/SiteChrome';
 import "./globals.scss"; // Ton SASS global
 

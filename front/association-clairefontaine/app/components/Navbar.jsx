@@ -36,7 +36,7 @@ const establishments = [
   {
     name: 'Résidence autonomie Montjoie',
     city: 'Dunkerque',
-    href: '/etablissements/montjoie',
+    href: '/jeanne-jugan#residence-montjoie',
   },
 ];
 

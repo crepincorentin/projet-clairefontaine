@@ -5,11 +5,6 @@ import 'leaflet/dist/leaflet.css';
 import L from 'leaflet';
 import ReactDOMServer from 'react-dom/server';
 
-/**
- * Crée une icône de marqueur SVG personnalisée pour Leaflet.
- * @param {string} color - La couleur de remplissage de l'icône.
- * @returns {L.DivIcon} Une instance d'icône Leaflet.
- */
 const createCustomIcon = (color) => {
   const markerSvg = ReactDOMServer.renderToString(
     <svg viewBox="0 0 32 52" width="28" height="46" style={{ overflow: 'visible' }}>
@@ -26,29 +21,27 @@ const createCustomIcon = (color) => {
     html: markerSvg,
     className: 'custom-leaflet-icon',
     iconSize: [28, 46],
-    iconAnchor: [14, 46], // Pointe du marqueur
-    popupAnchor: [0, -46], // Position de la popup par rapport à l'icône
+    iconAnchor: [14, 46],
+    popupAnchor: [0, -46],
   });
 };
 
-// Composant pour ajuster automatiquement le zoom et le centre de la carte
 function FitBounds({ locations }) {
   const map = useMap();
   if (locations && locations.length > 0) {
     const bounds = L.latLngBounds(locations.map((loc) => loc.coords));
-    map.fitBounds(bounds, { padding: [50, 50] }); // Ajoute un peu de marge
+    map.fitBounds(bounds, { padding: [50, 50] });
   }
   return null;
 }
 
 export default function InteractiveMap({ locations }) {
-  // Utilise les coordonnées du premier lieu comme centre initial
   const initialCenter = locations.length > 0 ? locations[0].coords : [50.85, 2.5];
 
   return (
     <MapContainer
       center={initialCenter}
-      zoom={13} // Zoom initial, sera ajusté par FitBounds
+      zoom={13}
       scrollWheelZoom={false}
       style={{ height: '100%', width: '100%' }}
     >

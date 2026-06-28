@@ -21,9 +21,9 @@ export const saintAugustin = {
       alt: 'Façade de la Maison de Famille Saint-Augustin à Bergues',
     },
     staff: {
-      value: 'XX',
-      firstLine: 'soignants &',
-      secondLine: 'encadrants',
+      value: 'Équipe',
+      firstLine: 'soignante &',
+      secondLine: 'encadrante',
     },
     locationBadge: {
       firstLine: 'Au cœur de',
@@ -195,9 +195,9 @@ export const clairefontaine = {
       alt: 'Façade de la Maison de Famille Clairefontaine à Hazebrouck',
     },
     staff: {
-      value: 'XX',
-      firstLine: 'soignants &',
-      secondLine: 'encadrants',
+      value: 'Équipe',
+      firstLine: 'soignante &',
+      secondLine: 'encadrante',
     },
     locationBadge: {
       firstLine: 'Au cœur de',
@@ -370,9 +370,9 @@ export const jeannejugan = {
       alt: 'Façade de la Maison de Famille Jeanne Jugan à Dunkerque',
     },
     staff: {
-      value: 'XX',
-      firstLine: 'soignants &',
-      secondLine: 'encadrants',
+      value: 'Équipe',
+      firstLine: 'soignante &',
+      secondLine: 'encadrante',
     },
     locationBadge: {
       firstLine: 'Au cœur de',
