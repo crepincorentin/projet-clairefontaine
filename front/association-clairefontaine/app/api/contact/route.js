@@ -1,3 +1,4 @@
+import crypto from 'node:crypto';
 import { NextResponse } from 'next/server';
 import { prisma } from '../../lib/prisma';
 
@@ -5,6 +6,26 @@ export const runtime = 'nodejs';
 
 function cleanString(value) {
   return typeof value === 'string' ? value.trim() : '';
+}
+
+async function ensureContactMessageTable() {
+  await prisma.$executeRawUnsafe(`
+    CREATE TABLE IF NOT EXISTS "ContactMessage" (
+      "id" TEXT NOT NULL,
+      "lastName" TEXT NOT NULL,
+      "firstName" TEXT NOT NULL,
+      "email" TEXT NOT NULL,
+      "phone" TEXT,
+      "message" TEXT NOT NULL,
+      "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
+      CONSTRAINT "ContactMessage_pkey" PRIMARY KEY ("id")
+    );
+  `);
+
+  await prisma.$executeRawUnsafe(`
+    CREATE INDEX IF NOT EXISTS "ContactMessage_createdAt_idx"
+    ON "ContactMessage"("createdAt");
+  `);
 }
 
 export async function POST(request) {
@@ -28,15 +49,23 @@ export async function POST(request) {
       return NextResponse.json({ error: 'Email invalide.' }, { status: 400 });
     }
 
-    const contactMessage = await prisma.contactMessage.create({
-      data: {
-        lastName,
-        firstName,
-        email: emailAddress,
-        phone: phone || null,
-        message: content,
-      },
-    });
+    await ensureContactMessageTable();
+
+    const [contactMessage] = await prisma.$queryRawUnsafe(
+      `
+        INSERT INTO "ContactMessage"
+          ("id", "lastName", "firstName", "email", "phone", "message")
+        VALUES
+          ($1, $2, $3, $4, $5, $6)
+        RETURNING "id", "lastName", "firstName", "email", "phone", "message", "createdAt";
+      `,
+      crypto.randomUUID(),
+      lastName,
+      firstName,
+      emailAddress,
+      phone || null,
+      content,
+    );
 
     return NextResponse.json({ contactMessage }, { status: 201 });
   } catch (error) {
