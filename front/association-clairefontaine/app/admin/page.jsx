@@ -31,6 +31,13 @@ function updatePricingDrafts(items) {
   }, {});
 }
 
+function formatMessageDate(value) {
+  return new Intl.DateTimeFormat('fr-FR', {
+    dateStyle: 'medium',
+    timeStyle: 'short',
+  }).format(new Date(value));
+}
+
 export default function AdminPage() {
   const [user, setUser] = useState(null);
   const [isCheckingSession, setIsCheckingSession] = useState(true);
@@ -40,6 +47,7 @@ export default function AdminPage() {
   const [error, setError] = useState('');
   const [notice, setNotice] = useState('');
   const [establishmentItems, setEstablishmentItems] = useState([]);
+  const [contactMessages, setContactMessages] = useState([]);
   const [pricingDrafts, setPricingDrafts] = useState({});
 
   useEffect(() => {
@@ -65,16 +73,25 @@ export default function AdminPage() {
   }, []);
 
   const refreshData = async () => {
-    const response = await fetch('/api/admin/establishments');
+    const [establishmentsResponse, contactMessagesResponse] = await Promise.all([
+      fetch('/api/admin/establishments'),
+      fetch('/api/admin/contact-messages'),
+    ]);
 
-    if (!response.ok) {
+    if (!establishmentsResponse.ok || !contactMessagesResponse.ok) {
       throw new Error('establishments');
     }
 
-    const data = await response.json();
-    const nextEstablishmentItems = data.establishments ?? [];
+    const [establishmentsData, contactMessagesData] = await Promise.all([
+      establishmentsResponse.json(),
+      contactMessagesResponse.json(),
+    ]);
+
+    const nextEstablishmentItems = establishmentsData.establishments ?? [];
+    const nextContactMessages = contactMessagesData.contactMessages ?? [];
 
     setEstablishmentItems(nextEstablishmentItems);
+    setContactMessages(nextContactMessages);
     setPricingDrafts(updatePricingDrafts(nextEstablishmentItems));
 
     return nextEstablishmentItems;
@@ -138,6 +155,7 @@ export default function AdminPage() {
     await fetch('/api/admin/auth/logout', { method: 'POST' });
     setUser(null);
     setEstablishmentItems([]);
+    setContactMessages([]);
     setPricingDrafts({});
     setNotice('');
   };
@@ -348,6 +366,9 @@ export default function AdminPage() {
           <a href="#pricing" className="admin-sidebar__link admin-sidebar__link--active">
             Tarifs
           </a>
+          <a href="#contact-messages" className="admin-sidebar__link">
+            Messages
+          </a>
         </nav>
       </aside>
 
@@ -373,8 +394,8 @@ export default function AdminPage() {
               <h2>Gérez le contenu des pages des établissements</h2>
             </div>
             <p>
-              Les changements enregistrés ici sont appliqués aux pages Saint-Augustin,
-              Clairefontaine et Jeanne Jugan.
+              Modifiez les tarifs des établissements et consultez les demandes envoyées depuis le
+              formulaire de contact.
             </p>
           </section>
 
@@ -580,6 +601,41 @@ export default function AdminPage() {
                     </article>
                   );
                 })}
+              </div>
+            )}
+          </section>
+
+          <section className="admin-section admin-contact-section" id="contact-messages">
+            <header className="admin-section__header">
+              <div>
+                <span>Messages du formulaire de contact</span>
+                <p>
+                  Retrouvez ici les dernières demandes envoyées depuis la page contact.
+                </p>
+              </div>
+            </header>
+
+            {contactMessages.length === 0 ? (
+              <p className="admin-empty">Aucun message reçu pour le moment.</p>
+            ) : (
+              <div className="admin-contact-list">
+                {contactMessages.map((message) => (
+                  <article className="admin-contact-card" key={message.id}>
+                    <header>
+                      <div>
+                        <h3>
+                          {message.firstName} {message.lastName}
+                        </h3>
+                        <span>{formatMessageDate(message.createdAt)}</span>
+                      </div>
+                      <div className="admin-contact-card__links">
+                        <a href={`mailto:${message.email}`}>{message.email}</a>
+                        {message.phone ? <a href={`tel:${message.phone}`}>{message.phone}</a> : null}
+                      </div>
+                    </header>
+                    <p>{message.message}</p>
+                  </article>
+                ))}
               </div>
             )}
           </section>

@@ -111,9 +111,9 @@
       transition: top 0.18s ease, font-size 0.18s ease, transform 0.18s ease;
     }
 
-    input {
+    input,
+    textarea {
       width: 100%;
-      height: 54px;
       padding: 1.15rem 1.1rem 0.35rem;
       border: 1px solid #d9d9d9;
       border-radius: 0;
@@ -133,11 +133,46 @@
       }
     }
 
+    input {
+      height: 54px;
+    }
+
+    textarea {
+      min-height: 150px;
+      resize: vertical;
+      line-height: 1.55;
+    }
+
     &:focus-within label,
-    &:has(input:not(:placeholder-shown)) label {
+    &:has(input:not(:placeholder-shown)) label,
+    &:has(textarea:not(:placeholder-shown)) label {
       top: 0.55rem;
       font-size: 0.68rem;
       transform: none;
+    }
+
+    &--textarea {
+      label {
+        top: 1.35rem;
+      }
+    }
+  }
+
+  &__feedback {
+    margin: 0;
+    padding: 0.85rem 1rem;
+    font-size: 0.92rem;
+    font-weight: 700;
+    line-height: 1.45;
+
+    &--success {
+      background: #eaf7ef;
+      color: #1f6b3a;
+    }
+
+    &--error {
+      background: #fee2e2;
+      color: #991b1b;
     }
   }
 
@@ -154,8 +189,13 @@
     cursor: pointer;
     transition: background-color 0.2s ease, transform 0.2s ease;
 
-    &:hover {
+    &:hover:not(:disabled) {
       background: #026f97;
+    }
+
+    &:disabled {
+      cursor: wait;
+      opacity: 0.7;
     }
 
     &:focus-visible {

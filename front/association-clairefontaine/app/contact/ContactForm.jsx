@@ -1,6 +1,7 @@
 'use client';
 
 import dynamic from 'next/dynamic';
+import { useState } from 'react';
 import { clairefontaine, jeannejugan, saintAugustin } from '../data/establishments';
 
 const InteractiveMap = dynamic(() => import('./InteractiveMap'), {
@@ -30,6 +31,45 @@ const locations = [
 ];
 
 export default function ContactForm() {
+  const [status, setStatus] = useState('idle');
+  const [feedback, setFeedback] = useState('');
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    setStatus('submitting');
+    setFeedback('');
+
+    const form = event.currentTarget;
+    const formData = new FormData(form);
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          nom: formData.get('nom'),
+          prenom: formData.get('prenom'),
+          email: formData.get('email'),
+          telephone: formData.get('telephone'),
+          message: formData.get('message'),
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error('contact');
+      }
+
+      form.reset();
+      setStatus('success');
+      setFeedback('Votre message a bien été envoyé. Nous reviendrons vers vous rapidement.');
+    } catch {
+      setStatus('error');
+      setFeedback('Impossible d’envoyer votre message pour le moment.');
+    }
+  };
+
   return (
     <section className="contact-content" aria-labelledby="contact-form-title">
       <div className="contact-content__container">
@@ -45,7 +85,7 @@ export default function ContactForm() {
             </p>
           </div>
 
-          <form className="contact-form" method="get">
+          <form className="contact-form" onSubmit={handleSubmit}>
             <div className="contact-form__row">
               <div className="contact-form__field">
                 <label htmlFor="last-name">Nom</label>
@@ -67,8 +107,19 @@ export default function ContactForm() {
               <input id="phone" name="telephone" type="tel" autoComplete="tel" placeholder=" " />
             </div>
 
-            <button type="submit" className="contact-form__submit">
-              Envoyer
+            <div className="contact-form__field contact-form__field--textarea">
+              <label htmlFor="message">Votre message</label>
+              <textarea id="message" name="message" rows="5" placeholder=" " required />
+            </div>
+
+            {feedback ? (
+              <p className={`contact-form__feedback contact-form__feedback--${status}`}>
+                {feedback}
+              </p>
+            ) : null}
+
+            <button type="submit" className="contact-form__submit" disabled={status === 'submitting'}>
+              {status === 'submitting' ? 'Envoi...' : 'Envoyer'}
             </button>
           </form>
         </div>
